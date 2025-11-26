@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio — Cheikh Ahmad Mbacké</title>
+
     <style>
         :root {
-            --primary: #1e90ff; /* Dodger Blue */
-            --primary-dark: #156acb;
+            --primary: #1e90ff;
+            --primary-dark: #1570d6;
+            --light-blue: #e9f2ff;
             --background: #f8f9ff;
             --text: #111;
             --card-bg: #fff;
@@ -23,28 +25,60 @@
             color: var(--text);
         }
 
+        /* ======================= HEADER ========================== */
+
         header {
-            padding: 20px 8%;
+            background: var(--light-blue);
+            padding: 18px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: var(--shadow);
+            border-radius: 0 0 25px 25px;
         }
 
         header h1 {
             font-size: 24px;
+            font-weight: 800;
             color: var(--primary);
+            line-height: 28px;
+        }
+
+        nav {
+            display: flex;
+            gap: 12px;
         }
 
         nav a {
-            margin-left: 20px;
             text-decoration: none;
+            background: var(--primary);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             font-weight: 500;
-            color: var(--text);
         }
 
-        /* HERO */
+        nav a:hover {
+            background: var(--primary-dark);
+        }
+
+        /* MOBILE MENU */
+        @media(max-width: 700px) {
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 8px;
+            }
+        }
+
+        /* ======================= HERO ========================== */
+
         .hero {
-            padding: 100px 8%;
+            padding: 80px 6%;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -55,13 +89,14 @@
             flex: 1;
         }
         .hero-text h2 {
-            font-size: 42px;
+            font-size: 40px;
             margin: 0;
         }
         .hero-text p {
             font-size: 18px;
-            margin-top: 12px;
-            opacity: 0.8;
+            margin-top: 14px;
+            opacity: 0.85;
+            line-height: 1.6;
         }
 
         .hero img {
@@ -69,31 +104,43 @@
             height: 260px;
             object-fit: cover;
             border-radius: 50%;
-            border: 5px solid var(--primary);
+            border: 6px solid var(--primary);
             box-shadow: var(--shadow);
         }
 
-        /* SECTION */
+        @media(max-width: 768px) {
+            .hero {
+                text-align: center;
+            }
+            .hero img {
+                margin: auto;
+            }
+        }
+
+        /* ======================= SECTIONS ========================== */
+
         section {
-            padding: 80px 8%;
+            padding: 80px 6%;
         }
 
         h2.section-title {
-            font-size: 30px;
-            margin-bottom: 40px;
+            font-size: 32px;
+            margin-bottom: 35px;
             color: var(--primary-dark);
+            text-align: left;
         }
 
         .about {
-            max-width: 800px;
+            max-width: 850px;
             font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
-        /* PROJECTS */
+        /* ======================= PROJECTS ========================== */
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
             gap: 35px;
         }
 
@@ -106,13 +153,16 @@
         }
         .project-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.13);
         }
 
+        /* Images 100% visibles */
         .project-card img {
             width: 100%;
-            height: 180px;
-            object-fit: cover;
+            height: 200px;
+            object-fit: contain;
+            background: #fff;
+            padding: 10px;
         }
 
         .project-content {
@@ -121,29 +171,42 @@
 
         .project-content h3 {
             margin: 0 0 10px 0;
+            font-size: 20px;
         }
 
         .project-content p {
             font-size: 15px;
             opacity: 0.85;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .stack {
-            margin-top: 10px;
+            margin-top: 8px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--primary-dark);
         }
 
-        .project-link {
+        .btn-link {
             display: inline-block;
-            margin-top: 12px;
-            color: var(--primary);
-            font-size: 15px;
+            margin-top: 14px;
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 16px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
         }
 
-        /* COMPETENCES */
+        .btn-link:hover {
+            background: var(--primary-dark);
+        }
+
+        /* ======================= SKILLS ========================== */
+
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -152,21 +215,26 @@
 
         .skill {
             background: var(--card-bg);
-            padding: 12px 20px;
+            padding: 12px 25px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             font-size: 15px;
             font-weight: 600;
         }
 
-        /* CONTACT */
+        /* ======================= CONTACT ========================== */
+
         .contact-info p {
             font-size: 18px;
-            margin: 8px 0;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         footer {
-            padding: 20px;
+            padding: 25px;
+            margin-top: 40px;
             text-align: center;
             background: #e7efff;
             font-size: 14px;
@@ -177,10 +245,11 @@
 <body>
 
 <header>
-    <h1>Cheikh Ahmad Mbacké</h1>
+    <h1>Cheikh Ahmad<br>Mbacké</h1>
+
     <nav>
         <a href="#about">À propos</a>
-        <a href="#projects">Projets</a>
+        <a href="#projects">Projets & Réalisations</a>
         <a href="#skills">Compétences</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -192,87 +261,71 @@
         <h2>Développeur Web & Mobile Full-Stack</h2>
         <p>Conception, développement et déploiement de solutions digitales performantes, sécurisées et modernes.</p>
     </div>
-    <img src="assets/Photo.jpg" alt="Photo de profil (à remplacer)">
+    <img src="assets/Photo.jpg" alt="Photo de profil">
 </section>
 
-<!-- A PROPOS -->
+<!-- ABOUT -->
 <section id="about">
     <h2 class="section-title">À propos</h2>
     <p class="about">
-        Développeur Full-Stack passionné par les solutions digitales modernes, je conçois des applications web et mobiles sécurisées, performantes et adaptées aux besoins réels des utilisateurs. Je maîtrise aussi bien les environnements backend que frontend, avec une forte sensibilité pour la qualité, l’architecture et l’expérience utilisateur.
+        Développeur Full-Stack passionné par les solutions digitales modernes, je conçois des applications web et mobiles sécurisées, performantes et adaptées aux besoins réels des utilisateurs.
     </p>
 </section>
 
-<!-- PROJETS -->
+<!-- PROJECTS -->
 <section id="projects">
-    <h2 class="section-title">Projets</h2>
+    <h2 class="section-title">Projets & Réalisations</h2>
 
     <div class="projects-grid">
 
-        <!-- SENBIB -->
+        <!-- SENBIB App -->
         <div class="project-card">
-            <a href="https://senbib.com" target="_blank">
-                <img src="assets/senbib.png" alt="Image Senbib (à remplacer)">
-            </a>
+            <img src="assets/senbib.png">
             <div class="project-content">
                 <h3>Senbib — Marketplace de livres numériques</h3>
-                <p>
-                    Application mobile sécurisée connectant auteurs africains et lecteurs, avec chiffrement avancé, anti-piratage, paiement multi-moyens, backend ASP.NET Core et app mobile .NET MAUI.
-                </p>
+                <p>Application mobile sécurisée connectant auteurs africains et lecteurs...</p>
                 <p class="stack">Stack : ASP.NET Core, .NET MAUI, AWS</p>
-                <a class="project-link" href="https://senbib.com" target="_blank">Voir le projet →</a>
+                <a class="btn-link" href="https://senbib.com" target="_blank">Voir le projet</a>
             </div>
         </div>
 
-        <!-- Senbib.com vitrine -->
+        <!-- SENBIB Site -->
         <div class="project-card">
-            <a href="https://senbib.com" target="_blank">
-                <img src="assets/senbib_site.jpg" alt="Site Senbib (à remplacer)">
-            </a>
+            <img src="assets/senbib_site.jpg">
             <div class="project-content">
                 <h3>Senbib.com — Site vitrine</h3>
-                <p>
-                    Site officiel et store de l’application Senbib. Développé en HTML/CSS/JS + backend ASP.NET Core.
-                </p>
+                <p>Site officiel et store de l’application Senbib.</p>
                 <p class="stack">Stack : HTML/CSS/JS, ASP.NET Core</p>
-                <a class="project-link" href="https://senbib.com" target="_blank">Voir le site →</a>
+                <a class="btn-link" href="https://senbib.com" target="_blank">Voir le site</a>
             </div>
         </div>
 
         <!-- Bawol Shop -->
         <div class="project-card">
-            <a href="https://senbib.com/bawol/app.html" target="_blank">
-                <img src="assets/bawol.jpg" alt="Bawol Shop (à remplacer)">
-            </a>
+            <img src="assets/bawol.jpg">
             <div class="project-content">
                 <h3>Bawol Shop — E-commerce</h3>
-                <p>
-                    Plateforme e-commerce complète : produits, paiements, commandes, stock, backend robuste et frontend moderne.
-                </p>
+                <p>Plateforme e-commerce complète...</p>
                 <p class="stack">Stack : ASP.NET Core, MySQL, HTML/CSS/JS</p>
-                <a class="project-link" href="https://senbib.com/bawol/app.html" target="_blank">Voir le site →</a>
+                <a class="btn-link" href="https://senbib.com/bawol/app.html" target="_blank">Voir le site</a>
             </div>
         </div>
 
-        <!-- LOCA BOAT -->
+        <!-- Locaboat -->
         <div class="project-card">
-            <a href="https://www.locaboat.com/avril-early-booking-2026" target="_blank">
-                <img src="assets/locaboat.jpg" alt="Locaboat (à remplacer)">
-            </a>
+            <img src="assets/locaboat.jpg">
             <div class="project-content">
                 <h3>Locaboat — Réservation de bateaux</h3>
-                <p>
-                    Site professionnel de réservation de bateaux, mettant en avant les offres, promotions et destinations.
-                </p>
-                <p class="stack">Stack : Website vitrine</p>
-                <a class="project-link" href="https://www.locaboat.com/avril-early-booking-2026" target="_blank">Voir le site →</a>
+                <p>Site professionnel mettant en avant les offres et destinations.</p>
+                <p class="stack">Stack : Site vitrine</p>
+                <a class="btn-link" href="https://www.locaboat.com/avril-early-booking-2026" target="_blank">Voir le site</a>
             </div>
         </div>
 
     </div>
 </section>
 
-<!-- COMPETENCES -->
+<!-- SKILLS -->
 <section id="skills">
     <h2 class="section-title">Compétences</h2>
     <div class="skills">
@@ -290,16 +343,19 @@
 <!-- CONTACT -->
 <section id="contact">
     <h2 class="section-title">Contact</h2>
+
     <div class="contact-info">
-        <p><strong>Email :</strong> cheikhahmadmbacke74@gmail.com</p>
-        <p><strong>Téléphone :</strong> +221 77 467 72 17</p>
-        <p><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank">Voir mon profil</a></p>
+        <p>📧 <strong>Email :</strong> cheikhahmadmbacke74@gmail.com</p>
+        <p>📞 <strong>Téléphone :</strong> +221 77 467 72 17</p>
+        <p>🔗 <strong>LinkedIn :</strong> 
+            <a class="btn-link" href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank">
+                Voir mon profil
+            </a>
+        </p>
     </div>
 </section>
 
-<footer>
-    © 2025 — Cheikh Ahmad Mbacké
-</footer>
+<footer>© 2025 — Cheikh Ahmad Mbacké</footer>
 
 </body>
-</html>
+    </html>
