@@ -1,421 +1,371 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Portfolio — Cheikh Ahmad Mbacké</title>
-<style>
-  :root{
-    --primary:#1e90ff;
-    --primary-dark:#1570d6;
-    --accent:#0b63d6;
-    --bg:#f8f9ff;
-    --card:#ffffff;
-    --muted:#6b7280;
-    --radius:18px;
-    --shadow:0 10px 30px rgba(16,24,40,0.08);
-    --glass: rgba(255,255,255,0.6);
-    --gap:20px;
-    --transition: 250ms cubic-bezier(.2,.9,.2,1);
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-    background:var(--bg);
-    color:#0f172a;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height:1.45;
-  }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Cheikh Ahmad Mbacké</title>
 
-  /* ---------- HEADER ---------- */
-  header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:18px 6%;
-    gap:16px;
-    background: linear-gradient(180deg, rgba(30,144,255,0.10), rgba(255,255,255,0));
-    border-bottom-left-radius:22px;
-    border-bottom-right-radius:22px;
-    box-shadow:var(--shadow);
-    position:sticky;
-    top:0;
-    z-index:60;
-  }
-  .brand{
-    display:flex;
-    gap:14px;
-    align-items:center;
-  }
-  .logo-circle{
-    width:54px;height:54px;border-radius:12px;
-    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
-    display:flex;align-items:center;justify-content:center;
-    color:white;font-weight:800;font-size:18px;box-shadow:0 8px 20px rgba(30,144,255,0.18);
-  }
-  .brand .name{
-    font-size:18px;font-weight:800;color:var(--primary);
-    line-height:1;
-  }
-  nav{display:flex;gap:10px;align-items:center}
-  .nav-btn{
-    background:transparent;
-    border:0;padding:8px 12px;border-radius:28px;
-    font-weight:600;color:var(--primary-dark);
-    cursor:pointer;text-decoration:none;
-    transition:var(--transition);
-    box-shadow:none;font-size:14px;
-  }
-  .nav-btn:hover{background:rgba(30,144,255,0.06)}
-  .cta{
-    background:var(--primary);color:#fff;padding:8px 14px;border-radius:28px;font-weight:700;
-    box-shadow:0 8px 24px rgba(30,144,255,0.18);
-  }
-  .cta:hover{background:var(--primary-dark)}
+    <style>
+        :root {
+            --primary: #1e90ff;
+            --primary-dark: #1570d6;
+            --light-blue: #e9f2ff;
+            --background: #f8f9ff;
+            --text: #111;
+            --card-bg: #fff;
+            --radius: 18px;
+            --shadow: 0 8px 25px rgba(0,0,0,0.08);
+            --transition: 0.3s ease;
+        }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    padding:60px 6% 40px;
-    display:flex;
-    gap:28px;
-    align-items:center;
-    flex-wrap:wrap;
-  }
-  .hero-left{flex:1;min-width:260px}
-  .hero-left h1{
-    font-size:40px;margin:0 0 12px;font-weight:800;
-    letter-spacing:-0.8px;color:#071029;
-  }
-  .hero-left p{font-size:17px;color:var(--muted);margin:0;max-width:720px}
-  .hero-right{width:140px;height:140px;border-radius:50%;overflow:hidden;
-    border:5px solid var(--primary);box-shadow:0 18px 40px rgba(13,52,110,0.09);
-    display:flex;align-items:center;justify-content:center;background:#fff}
-  .hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+        body {
+            margin: 0;
+            background: var(--background);
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+        }
 
-  /* ---------- SECTIONS ---------- */
-  section{padding:60px 6%}
-  h2.section-title{font-size:26px;color:var(--primary-dark);margin:0 0 22px}
+        /* ======================= HEADER ========================== */
 
-  /* ---------- ABOUT ---------- */
-  .about-card{
-    background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
-    padding:20px;border-radius:16px;box-shadow:var(--shadow);max-width:920px;
-    font-size:16px;color:#0b1220;
-  }
+        header {
+            background: var(--light-blue);
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            border-radius: 0 0 25px 25px;
+        }
 
-  /* ---------- PROJECTS GRID ---------- */
-  .projects-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:22px;
-  }
-  .project-card{
-    background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
-    transition:transform var(--transition),box-shadow var(--transition);
-    display:flex;flex-direction:column;height:100%;
-  }
-  .project-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(7,18,40,0.12)}
-  .project-media{
-    width:100%;height:190px;background:#fff;display:flex;align-items:center;justify-content:center;
-    padding:10px;border-bottom:1px solid rgba(11,17,28,0.04);
-  }
-  .project-media img{
-    width:100%;height:100%;object-fit:contain;cursor:pointer;
-    transition:transform 300ms ease;
-  }
-  .project-media img:active{transform:scale(0.99)}
-  .project-body{padding:18px;flex:1;display:flex;flex-direction:column}
-  .project-body h3{margin:0 0 8px;font-size:18px}
-  .project-body p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
-  .stack{margin-top:10px;font-weight:700;color:var(--primary-dark);font-size:13px}
-  .project-actions{margin-top:auto;display:flex;gap:10px;align-items:center}
-  .btn{
-    display:inline-block;padding:9px 14px;border-radius:26px;background:var(--primary);
-    color:#fff;text-decoration:none;font-weight:700;box-shadow:0 10px 30px rgba(30,144,255,0.15);
-    transition:transform var(--transition);
-  }
-  .btn:hover{transform:translateY(-3px);background:var(--primary-dark)}
+        header h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 28px;
+        }
 
-  /* ---------- IMAGE MODAL (gallery) ---------- */
-  .img-modal{
-    position:fixed;inset:0;display:none;align-items:center;justify-content:center;
-    background:linear-gradient(180deg, rgba(2,6,23,0.65), rgba(2,6,23,0.85));z-index:120;
-  }
-  .img-modal.open{display:flex}
-  .img-modal .img-wrap{
-    max-width:96vw;max-height:94vh;border-radius:12px;overflow:hidden;position:relative;
-    transform:translateY(12px) scale(.98);opacity:0;transition:transform 380ms cubic-bezier(.2,.9,.2,1),opacity 260ms;
-  }
-  .img-modal.open .img-wrap{transform:translateY(0) scale(1);opacity:1}
-  .img-modal img{display:block;max-width:100%;max-height:100%;object-fit:contain}
-  .img-modal .close{
-    position:absolute;top:10px;right:10px;background:rgba(255,255,255,0.08);color:#fff;border:0;
-    padding:8px 10px;border-radius:10px;font-weight:700;backdrop-filter: blur(4px);cursor:pointer;
-  }
+        nav {
+            display: flex;
+            gap: 12px;
+        }
 
-  /* ---------- SKILLS ---------- */
-  .skills{display:flex;flex-wrap:wrap;gap:12px}
-  .skill{background:var(--card);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow);font-weight:700;font-size:13px}
+        nav a {
+            text-decoration: none;
+            background: var(--primary);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            font-weight: 500;
+        }
 
-  /* ---------- CONTACT ---------- */
-  .contact-grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:760px}
-  .contact-row{
-    display:flex;align-items:center;gap:12px;background:var(--card);padding:12px 14px;border-radius:12px;box-shadow:var(--shadow);
-  }
-  .contact-ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#f1f7ff;color:var(--primary);font-size:18px}
-  .contact-label{font-weight:700;width:110px}
-  .contact-value{flex:1;color:#0a1220;word-break:break-word}
-  .contact-action{margin-left:6px}
-  .contact-action .btn{padding:8px 12px;border-radius:20px;font-size:14px}
+        nav a:hover {
+            background: var(--primary-dark);
+        }
 
-  /* ---------- FOOTER ---------- */
-  footer{padding:28px 6%;text-align:center;color:var(--muted);font-size:14px}
+        /* MOBILE MENU */
+        @media(max-width: 700px) {
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 8px;
+            }
+        }
 
-  /* ---------- RESPONSIVE ---------- */
-  @media(max-width:880px){
-    .hero-left h1{font-size:30px}
-    .hero-right{width:120px;height:120px}
-  }
-  @media(max-width:600px){
-    header{padding:14px 5%}
-    .logo-circle{width:46px;height:46px;font-size:16px;border-radius:10px}
-    .hero{padding:40px 5% 26px}
-    .hero-left h1{font-size:28px}
-    .project-media{height:160px}
-    .project-card{border-radius:14px}
-    .contact-grid{grid-template-columns:1fr}
-    nav{gap:8px}
-  }
+        /* ======================= HERO ========================== */
 
-</style>
+        .hero {
+            padding: 80px 6%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+        .hero-text h2 {
+            font-size: 40px;
+            margin: 0;
+        }
+        .hero-text p {
+            font-size: 18px;
+            margin-top: 14px;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .hero img {
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        @media(max-width: 768px) {
+            .hero {
+                text-align: center;
+            }
+            .hero img {
+                margin: auto;
+            }
+        }
+
+        /* ======================= SECTIONS ========================== */
+
+        section {
+            padding: 80px 6%;
+        }
+
+        h2.section-title {
+            font-size: 32px;
+            margin-bottom: 35px;
+            color: var(--primary-dark);
+            text-align: left;
+        }
+
+        .about {
+            max-width: 850px;
+            font-size: 18px;
+            line-height: 1.65;
+        }
+
+        /* ======================= PROJECTS ========================== */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 35px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.13);
+        }
+
+        /* Images 100% visibles */
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: #fff;
+            padding: 10px;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+        }
+
+        .project-content p {
+            font-size: 15px;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .stack {
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .btn-link {
+            display: inline-block;
+            margin-top: 14px;
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 16px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-link:hover {
+            background: var(--primary-dark);
+        }
+
+        /* ======================= SKILLS ========================== */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            background: var(--card-bg);
+            padding: 12px 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        /* ======================= CONTACT ========================== */
+
+        .contact-info p {
+            font-size: 18px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        footer {
+            padding: 25px;
+            margin-top: 40px;
+            text-align: center;
+            background: #e7efff;
+            font-size: 14px;
+        }
+    </style>
 </head>
+
 <body>
 
 <header>
-  <div class="brand">
-    <div class="logo-circle">CM</div>
-    <div class="name">Cheikh Ahmad<br><span style="font-weight:700">Mbacké</span></div>
-  </div>
+    <h1>Cheikh Ahmad<br>Mbacké</h1>
 
-  <nav aria-label="Navigation principale">
-    <a class="nav-btn" href="#about">À propos</a>
-    <a class="nav-btn" href="#projects">Projets & Réalisations</a>
-    <a class="nav-btn" href="#skills">Compétences</a>
-    <a class="nav-btn cta" href="#contact">Contact</a>
-  </nav>
+    <nav>
+        <a href="#about">À propos</a>
+        <a href="#projects">Projets & Réalisations</a>
+        <a href="#skills">Compétences</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-left">
-    <h1>Développeur Web & Mobile Full-Stack</h1>
-    <p>Conception, développement et déploiement de solutions digitales performantes, sécurisées et modernes. Je construis des produits fiables qui résolvent des problèmes réels — backend sécurisé, front performant et expérience soignée.</p>
-  </div>
-  <div class="hero-right" aria-hidden="true">
-    <img src="assets/Photo.jpg" alt="Photo de profil — Cheikh Ahmad Mbacké">
-  </div>
+<section class="hero">
+    <div class="hero-text">
+        <h2>Développeur Web & Mobile Full-Stack</h2>
+        <p>Conception, développement et déploiement de solutions digitales performantes, sécurisées et modernes.</p>
+    </div>
+    <img src="assets/Photo.jpg" alt="Photo de profil">
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <h2 class="section-title">À propos</h2>
-  <div class="about-card">
-    Développeur Full-Stack passionné par les solutions digitales modernes, j'ai conçu et déployé plusieurs applications web & mobiles (marketplace, e-commerce, sites vitrines). J'attache une grande importance à la sécurité, la maintenabilité et à l'expérience utilisateur.
-  </div>
+    <h2 class="section-title">À propos</h2>
+    <p class="about">
+        Développeur Full-Stack passionné par les solutions digitales modernes, je conçois des applications web et mobiles sécurisées, performantes et adaptées aux besoins réels des utilisateurs.
+    </p>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <h2 class="section-title">Projets & Réalisations</h2>
+    <h2 class="section-title">Projets & Réalisations</h2>
 
-  <div class="projects-grid">
+    <div class="projects-grid">
 
-    <!-- SENBIB App -->
-    <article class="project-card" aria-labelledby="p1">
-      <div class="project-media">
-        <img src="assets/senbib.png" alt="Senbib — app" data-full="assets/senbib.png">
-      </div>
-      <div class="project-body">
-        <h3 id="p1">Senbib — Marketplace de livres numériques</h3>
-        <p>Application mobile sécurisée connectant auteurs africains et lecteurs : chiffrement PDF, anti-capture, paiements multi-moyens, backend ASP.NET Core et app .NET MAUI.</p>
-        <div class="stack">ASP.NET Core · .NET MAUI · AWS</div>
-        <div class="project-actions">
-          <a class="btn" href="https://senbib.com" target="_blank" rel="noopener">Voir le projet</a>
+        <!-- SENBIB App -->
+        <div class="project-card">
+            <img src="assets/senbib.png">
+            <div class="project-content">
+                <h3>Senbib — Marketplace de livres numériques</h3>
+                <p>Application mobile sécurisée connectant auteurs africains et lecteurs...</p>
+                <p class="stack">Stack : ASP.NET Core, .NET MAUI, AWS</p>
+                <a class="btn-link" href="https://senbib.com" target="_blank">Voir le projet</a>
+            </div>
         </div>
-      </div>
-    </article>
 
-    <!-- SENBIB Site -->
-    <article class="project-card" aria-labelledby="p2">
-      <div class="project-media">
-        <img src="assets/senbib_site.jpg" alt="Senbib site" data-full="assets/senbib_site.jpg">
-      </div>
-      <div class="project-body">
-        <h3 id="p2">Senbib.com — Site vitrine</h3>
-        <p>Site officiel et store de l’application Senbib. Frontend en HTML/CSS/JS, backend ASP.NET Core.</p>
-        <div class="stack">HTML · CSS · JavaScript · ASP.NET Core</div>
-        <div class="project-actions">
-          <a class="btn" href="https://senbib.com" target="_blank" rel="noopener">Voir le site</a>
+        <!-- SENBIB Site -->
+        <div class="project-card">
+            <img src="assets/senbib_site.jpg">
+            <div class="project-content">
+                <h3>Senbib.com — Site vitrine</h3>
+                <p>Site officiel et store de l’application Senbib.</p>
+                <p class="stack">Stack : HTML/CSS/JS, ASP.NET Core</p>
+                <a class="btn-link" href="https://senbib.com" target="_blank">Voir le site</a>
+            </div>
         </div>
-      </div>
-    </article>
 
-    <!-- Bawol Shop -->
-    <article class="project-card" aria-labelledby="p3">
-      <div class="project-media">
-        <img src="assets/bawol.jpg" alt="Bawol Shop" data-full="assets/bawol.jpg">
-      </div>
-      <div class="project-body">
-        <h3 id="p3">Bawol Shop — E-commerce</h3>
-        <p>Plateforme e-commerce complète : gestion produits, commandes, paiements et déploiement. Backend robuste et frontend moderne.</p>
-        <div class="stack">ASP.NET Core · MySQL · HTML/CSS/JS</div>
-        <div class="project-actions">
-          <a class="btn" href="https://senbib.com/bawol/app.html" target="_blank" rel="noopener">Voir le site</a>
+        <!-- Bawol Shop -->
+        <div class="project-card">
+            <img src="assets/bawol.jpg">
+            <div class="project-content">
+                <h3>Bawol Shop — E-commerce</h3>
+                <p>Plateforme e-commerce complète...</p>
+                <p class="stack">Stack : ASP.NET Core, MySQL, HTML/CSS/JS</p>
+                <a class="btn-link" href="https://senbib.com/bawol/app.html" target="_blank">Voir le site</a>
+            </div>
         </div>
-      </div>
-    </article>
 
-    <!-- Montre.com (nouveau) -->
-    <article class="project-card" aria-labelledby="p4">
-      <div class="project-media">
-        <img src="assets/montre.jpg" alt="Montre.com — e-commerce montres" data-full="assets/montre.jpg">
-      </div>
-      <div class="project-body">
-        <h3 id="p4">Montre.com — E-commerce spécialisé montres</h3>
-        <p>Site e-commerce spécialisé dans la vente de montres. UX focalisée sur conversion & catalogue produit.</p>
-        <div class="stack">E-commerce · UX · Paiements</div>
-        <div class="project-actions">
-          <a class="btn" href="https://www.montre.com/" target="_blank" rel="noopener">Voir le site</a>
+        <!-- Locaboat -->
+        <div class="project-card">
+            <img src="assets/locaboat.jpg">
+            <div class="project-content">
+                <h3>Locaboat — Réservation de bateaux</h3>
+                <p>Site professionnel mettant en avant les offres et destinations.</p>
+                <p class="stack">Stack : Site vitrine</p>
+                <a class="btn-link" href="https://www.locaboat.com/avril-early-booking-2026" target="_blank">Voir le site</a>
+            </div>
         </div>
-      </div>
-    </article>
 
-    <!-- Locaboat -->
-    <article class="project-card" aria-labelledby="p5">
-      <div class="project-media">
-        <img src="assets/locaboat.jpg" alt="Locaboat" data-full="assets/locaboat.jpg">
-      </div>
-      <div class="project-body">
-        <h3 id="p5">Locaboat — Réservation de bateaux</h3>
-        <p>Site professionnel de réservation de bateaux, mettant en avant offres, destinations et promotions.</p>
-        <div class="stack">Site vitrine · Réservation</div>
-        <div class="project-actions">
-          <a class="btn" href="https://www.locaboat.com/avril-early-booking-2026" target="_blank" rel="noopener">Voir le site</a>
-        </div>
-      </div>
-    </article>
-
-  </div>
+    </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-  <h2 class="section-title">Compétences</h2>
-  <div class="skills" role="list">
-    <div class="skill" role="listitem">ASP.NET Core</div>
-    <div class="skill" role="listitem">C#</div>
-    <div class="skill" role="listitem">HTML / CSS / JavaScript</div>
-    <div class="skill" role="listitem">MySQL / PostgreSQL</div>
-    <div class="skill" role="listitem">.NET MAUI</div>
-    <div class="skill" role="listitem">API REST</div>
-    <div class="skill" role="listitem">Cloud & Déploiement</div>
-    <div class="skill" role="listitem">Architecture & Sécurité</div>
-    <div class="skill" role="listitem">Next.js</div>
-    <div class="skill" role="listitem">TypeScript</div>
-    <div class="skill" role="listitem">Node.js</div>
-  </div>
+    <h2 class="section-title">Compétences</h2>
+    <div class="skills">
+        <div class="skill">ASP.NET Core</div>
+        <div class="skill">C#</div>
+        <div class="skill">HTML/CSS/JavaScript</div>
+        <div class="skill">MySQL / PostgreSQL</div>
+        <div class="skill">.NET MAUI</div>
+        <div class="skill">API REST</div>
+        <div class="skill">Cloud & Déploiement</div>
+        <div class="skill">Architecture & Sécurité</div>
+    </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <h2 class="section-title">Contact</h2>
+    <h2 class="section-title">Contact</h2>
 
-  <div class="contact-grid">
+    <div class="contact-info">
 
-    <div class="contact-row">
-      <div class="contact-ico">📧</div>
-      <div class="contact-label">Email :</div>
-      <div class="contact-value">cheikhahmadmbacke74@gmail.com</div>
-      <div class="contact-action"><a class="btn" href="mailto:cheikhahmadmbacke74@gmail.com">Écrire</a></div>
+        <!-- BOUTON ÉCRIRE -->
+        <p>
+            📧 <a class="btn-link" href="mailto:cheikhahmadmbacke74@gmail.com">Écrire</a>
+        </p>
+
+        <!-- BOUTON APPELER -->
+        <p>
+            📞 <a class="btn-link" href="tel:+221774677217">Appeler</a>
+        </p>
+
+        <!-- BOUTON LINKEDIN -->
+        <p>
+            🔗 <a class="btn-link" href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank">
+                Voir mon profil LinkedIn
+            </a>
+        </p>
     </div>
-
-    <div class="contact-row">
-      <div class="contact-ico">📞</div>
-      <div class="contact-label">Téléphone :</div>
-      <div class="contact-value">+221 77 467 72 17</div>
-      <div class="contact-action"><a class="btn" href="tel:+221774677217">Appeler</a></div>
-    </div>
-
-    <div class="contact-row">
-      <div class="contact-ico">🔗</div>
-      <div class="contact-label">LinkedIn :</div>
-      <div class="contact-value">cheikh-ahmad-mbacke-1267aa244</div>
-      <div class="contact-action"><a class="btn" href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank" rel="noopener">Voir mon profil</a></div>
-    </div>
-
-  </div>
 </section>
 
 <footer>© 2025 — Cheikh Ahmad Mbacké</footer>
 
-<!-- IMAGE MODAL (FULLSCREEN GALLERY) -->
-<div id="imgModal" class="img-modal" aria-hidden="true" role="dialog" aria-label="Agrandissement image">
-  <div class="img-wrap" role="document">
-    <button class="close" id="closeModal">Fermer ✕</button>
-    <img id="modalImg" src="" alt="Agrandissement image">
-  </div>
-</div>
-
-<script>
-  // Gallery modal: object-fit in grid + full-screen modal on click
-  (function(){
-    const modal = document.getElementById('imgModal');
-    const modalImg = document.getElementById('modalImg');
-    const closeBtn = document.getElementById('closeModal');
-
-    document.querySelectorAll('.project-media img').forEach(img=>{
-      img.addEventListener('click', e=>{
-        const src = img.dataset.full || img.src;
-        modalImg.src = src;
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden','false');
-        // prevent background scroll
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    function closeModal(){
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
-      modalImg.src = '';
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
-    }
-
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e)=>{
-      if(e.target === modal || e.target === modalImg) closeModal();
-    });
-
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
-
-    // Smooth anchor scroll for nav (mobile friendly)
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const href = this.getAttribute('href');
-        if(href.length > 1){
-          e.preventDefault();
-          const el = document.querySelector(href);
-          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-        }
-      });
-    });
-  })();
-</script>
-
 </body>
-    </html>
+  </html>
