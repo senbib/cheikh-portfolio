@@ -7,7 +7,7 @@
 
     <style>
         :root {
-            --primary: #1e90ff;
+            --primary: #1e90ff; /* Dodger Blue */
             --primary-dark: #1570d6;
             --light-blue: #e9f2ff;
             --background: #f8f9ff;
@@ -144,25 +144,28 @@
             gap: 35px;
         }
 
+        /* Added Dodger Blue border as requested */
         .project-card {
             background: var(--card-bg);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             overflow: hidden;
             transition: var(--transition);
+            border: 3px solid var(--primary);
         }
         .project-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 14px 35px rgba(0,0,0,0.13);
         }
 
-        /* Images 100% visibles */
+        /* Images 100% visibles (object-fit contain) */
         .project-card img {
             width: 100%;
             height: 200px;
             object-fit: contain;
             background: #fff;
             padding: 10px;
+            cursor: pointer;
         }
 
         .project-content {
@@ -174,10 +177,13 @@
             font-size: 20px;
         }
 
+        /* ensure full description displayed (no ellipsis) */
         .project-content p {
             font-size: 15px;
             opacity: 0.85;
             line-height: 1.6;
+            margin: 0 0 10px 0;
+            white-space: normal;
         }
 
         .stack {
@@ -224,14 +230,63 @@
 
         /* ======================= CONTACT ========================== */
 
-        .contact-info p {
-            font-size: 18px;
-            margin: 10px 0;
+        /* contact card wrapper */
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            max-width: 880px;
             display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            gap: 12px;
+            border: 3px solid rgba(30,144,255,0.12);
         }
 
+        .contact-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .contact-left {
+            display:flex;
+            align-items:center;
+            gap:12px;
+            min-width: 220px;
+        }
+
+        .contact-label {
+            font-weight:700;
+        }
+
+        .contact-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 25px;
+            font-weight:700;
+            display: inline-flex;
+            align-items:center;
+            gap:10px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-btn .ico {
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:26px;height:26px;border-radius:6px;background:rgba(255,255,255,0.16);
+            font-size:14px;
+        }
+
+        /* footer */
         footer {
             padding: 25px;
             margin-top: 40px;
@@ -239,6 +294,14 @@
             background: #e7efff;
             font-size: 14px;
         }
+
+        @media (max-width: 720px) {
+            .contact-left { min-width: 180px }
+            .project-card img { height: 160px }
+            section { padding: 40px 6% }
+            .hero { padding: 60px 6% 30px }
+        }
+
     </style>
 </head>
 
@@ -280,10 +343,23 @@
 
         <!-- SENBIB App -->
         <div class="project-card">
-            <img src="assets/senbib.png">
+            <img src="assets/senbib.png" alt="Senbib — app" data-full="assets/senbib.png">
             <div class="project-content">
                 <h3>Senbib — Marketplace de livres numériques</h3>
-                <p>Application mobile sécurisée connectant auteurs africains et lecteurs...</p>
+                <p>
+                    C'est une application mobile de type marketplace pour livre numérique, une bibliothèque numérique sécurisée qui connecte directement auteurs et lecteurs de livres numériques. 
+                    Rôle : Développeur Full-Stack — Conception, développement, tests et mise en production.
+                    Plateforme numérique permettant aux auteurs africains de vendre leurs œuvres en toute sécurité et aux lecteurs de lire dans une application protégée contre le piratage.
+                    Réalisations principales :
+                    - Développement complet du backend en ASP.NET Core (API REST).
+                    - Chiffrement des fichiers PDF + stockage sécurisé.
+                    - Système anti-capture d’écran, anti-export, anti-impression.
+                    - Authentification sécurisée + rôles auteurs/lecteurs.
+                    - Intégration de Wave, OM, cartes bancaires, PayPal, crypto.
+                    - Développement du frontend en .NET MAUI avec lecteur PDF intégré.
+                    - Déploiement complet sur serveur cloud (AWS).
+                    - L'application est téléchargeable depuis le site : https://senbib.com
+                </p>
                 <p class="stack">Stack : ASP.NET Core, .NET MAUI, AWS</p>
                 <a class="btn-link" href="https://senbib.com" target="_blank">Voir le projet</a>
             </div>
@@ -291,33 +367,52 @@
 
         <!-- SENBIB Site -->
         <div class="project-card">
-            <img src="assets/senbib_site.jpg">
+            <img src="assets/senbib_site.jpg" alt="Senbib site" data-full="assets/senbib_site.jpg">
             <div class="project-content">
                 <h3>Senbib.com — Site vitrine</h3>
-                <p>Site officiel et store de l’application Senbib.</p>
-                <p class="stack">Stack : HTML/CSS/JS, ASP.NET Core</p>
+                <p>
+                    Un site vitrine et store de l'application Senbib, développé avec HTML/CSS/JavaScript (Front-End) et ASP.NET Core/C# (Backend). Il permet la promotion de l'application, la présentation des fonctionnalités et le téléchargement de l'app.
+                </p>
+                <p class="stack">Stack : HTML · CSS · JavaScript · ASP.NET Core</p>
                 <a class="btn-link" href="https://senbib.com" target="_blank">Voir le site</a>
             </div>
         </div>
 
         <!-- Bawol Shop -->
         <div class="project-card">
-            <img src="assets/bawol.jpg">
+            <img src="assets/bawol.jpg" alt="Bawol Shop" data-full="assets/bawol.jpg">
             <div class="project-content">
                 <h3>Bawol Shop — E-commerce</h3>
-                <p>Plateforme e-commerce complète...</p>
-                <p class="stack">Stack : ASP.NET Core, MySQL, HTML/CSS/JS</p>
+                <p>
+                    Développement d’un site e-commerce complet : backend ASP.NET Core + MySQL, frontend HTML/CSS/JavaScript. Authentification, gestion produits, commandes, stock, intégration paiements (Wave, OM, cartes, PayPal, crypto), déploiement complet. Hébergé sur Hostinger.
+                </p>
+                <p class="stack">Stack : ASP.NET Core · MySQL · HTML/CSS/JS</p>
                 <a class="btn-link" href="https://senbib.com/bawol/app.html" target="_blank">Voir le site</a>
+            </div>
+        </div>
+
+        <!-- Montre.com -->
+        <div class="project-card">
+            <img src="assets/montre.jpg" alt="Montre.com" data-full="assets/montre.jpg">
+            <div class="project-content">
+                <h3>Montre.com — E-commerce spécialisé montres</h3>
+                <p>
+                    Site e-commerce spécialisé dans la vente de montres, axé sur catalogue produit, filtres et conversion. Développement orienté performance et expérience utilisateur.
+                </p>
+                <p class="stack">Stack : E-commerce · UX · Paiements</p>
+                <a class="btn-link" href="https://www.montre.com/" target="_blank">Voir le site</a>
             </div>
         </div>
 
         <!-- Locaboat -->
         <div class="project-card">
-            <img src="assets/locaboat.jpg">
+            <img src="assets/locaboat.jpg" alt="Locaboat" data-full="assets/locaboat.jpg">
             <div class="project-content">
                 <h3>Locaboat — Réservation de bateaux</h3>
-                <p>Site professionnel mettant en avant les offres et destinations.</p>
-                <p class="stack">Stack : Site vitrine</p>
+                <p>
+                    Site professionnel de réservation de bateaux, mettant en avant les offres, promotions et destinations.
+                </p>
+                <p class="stack">Stack : Site vitrine · Réservation</p>
                 <a class="btn-link" href="https://www.locaboat.com/avril-early-booking-2026" target="_blank">Voir le site</a>
             </div>
         </div>
@@ -337,6 +432,9 @@
         <div class="skill">API REST</div>
         <div class="skill">Cloud & Déploiement</div>
         <div class="skill">Architecture & Sécurité</div>
+        <div class="skill">Next.js</div>
+        <div class="skill">TypeScript</div>
+        <div class="skill">Node.js</div>
     </div>
 </section>
 
@@ -344,28 +442,116 @@
 <section id="contact">
     <h2 class="section-title">Contact</h2>
 
-    <div class="contact-info">
+    <div class="contact-card">
+        <!-- Email row -->
+        <div class="contact-row">
+            <div class="contact-left">
+                <div class="contact-label">Email :</div>
+                <div class="contact-value">cheikhahmadmbacke74@gmail.com</div>
+            </div>
+            <div>
+                <a class="contact-btn" href="mailto:cheikhahmadmbacke74@gmail.com">
+                    <span class="ico">📧</span> Écrivez-moi sur E-mail
+                </a>
+            </div>
+        </div>
 
-        <!-- BOUTON ÉCRIRE -->
-        <p>
-            📧 <a class="btn-link" href="mailto:cheikhahmadmbacke74@gmail.com">Écrire</a>
-        </p>
+        <!-- Phone row -->
+        <div class="contact-row">
+            <div class="contact-left">
+                <div class="contact-label">Téléphone :</div>
+                <div class="contact-value">+221 77 467 72 17</div>
+            </div>
+            <div>
+                <a class="contact-btn" href="tel:+221774677217">
+                    <span class="ico">📞</span> Appelez-moi
+                </a>
+            </div>
+        </div>
 
-        <!-- BOUTON APPELER -->
-        <p>
-            📞 <a class="btn-link" href="tel:+221774677217">Appeler</a>
-        </p>
-
-        <!-- BOUTON LINKEDIN -->
-        <p>
-            🔗 <a class="btn-link" href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank">
-                Voir mon profil LinkedIn
-            </a>
-        </p>
+        <!-- LinkedIn row -->
+        <div class="contact-row">
+            <div class="contact-left">
+                <div class="contact-label">LinkedIn :</div>
+                <div class="contact-value">cheikh-ahmad-mbacke-1267aa244</div>
+            </div>
+            <div>
+                <a class="contact-btn" href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank" rel="noopener">
+                    <span class="ico">🔗</span> Voir mon profil LinkedIn
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
 <footer>© 2025 — Cheikh Ahmad Mbacké</footer>
 
+<!-- Modal full-screen simple (version A) -->
+<div id="imgModal" style="
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+">
+    <div style="max-width:95vw; max-height:94vh; position:relative;">
+        <button id="closeModal" style="
+            position:absolute; top:10px; right:10px; z-index:2;
+            background:rgba(255,255,255,0.08); color:#fff; border:0; padding:8px 10px; border-radius:8px; font-weight:700;
+        ">Fermer ✕</button>
+        <img id="modalImg" src="" alt="Agrandissement" style="max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:6px;">
+    </div>
+</div>
+
+<script>
+    // Simple modal (A) for images: click image -> full screen modal
+    (function(){
+        const modal = document.getElementById('imgModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeBtn = document.getElementById('closeModal');
+
+        document.querySelectorAll('.project-card img').forEach(img=>{
+            img.addEventListener('click', function(e){
+                const src = this.dataset.full || this.src;
+                modalImg.src = src;
+                modal.style.display = 'flex';
+                document.documentElement.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeModal(){
+            modal.style.display = 'none';
+            modalImg.src = '';
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', function(e){
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', function(e){
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Smooth scroll for internal anchors
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+            a.addEventListener('click', function(e){
+                const href = this.getAttribute('href');
+                if (href.length > 1) {
+                    e.preventDefault();
+                    const el = document.querySelector(href);
+                    if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+                }
+            });
+        });
+    })();
+</script>
+
 </body>
-  </html>
+    </html>
