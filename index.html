@@ -4,315 +4,730 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio — Cheikh Ahmad Mbacké</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #1e90ff; /* Dodger Blue */
-            --primary-dark: #1570d6;
-            --light-blue: #e9f2ff;
-            --background: #f8f9ff;
-            --text: #111;
-            --card-bg: #fff;
-            --radius: 18px;
-            --shadow: 0 8px 25px rgba(0,0,0,0.08);
-            --transition: 0.3s ease;
+            --primary: #6366f1; /* Indigo moderne */
+            --primary-dark: #4f46e5;
+            --primary-light: #e0e7ff;
+            --secondary: #10b981; /* Emerald */
+            --accent: #8b5cf6; /* Violet */
+            --background: #f8fafc;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --card-bg: #ffffff;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --shadow: 0 10px 30px rgba(99, 102, 241, 0.08);
+            --shadow-hover: 0 20px 40px rgba(99, 102, 241, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            margin: 0;
             background: var(--background);
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
         }
 
         /* ======================= HEADER ========================== */
-
         header {
-            background: var(--light-blue);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
             padding: 18px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: var(--shadow);
-            border-radius: 0 0 25px 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
         }
 
         header h1 {
             font-size: 24px;
             font-weight: 800;
-            color: var(--primary);
-            line-height: 28px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
         nav {
             display: flex;
-            gap: 12px;
+            gap: 16px;
         }
 
         nav a {
             text-decoration: none;
-            background: var(--primary);
-            color: white;
-            padding: 10px 16px;
-            border-radius: 30px;
-            font-size: 14px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            color: var(--text);
             font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
         nav a:hover {
-            background: var(--primary-dark);
+            color: var(--primary);
+            background: var(--primary-light);
         }
 
-        /* MOBILE MENU */
-        @media(max-width: 700px) {
-            nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: flex-end;
-                gap: 8px;
-            }
+        nav a.active {
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
         }
 
         /* ======================= HERO ========================== */
-
         .hero {
-            padding: 80px 6%;
+            padding: 100px 6% 80px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 40px;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .hero-text {
             flex: 1;
-        }
-        .hero-text h2 {
-            font-size: 40px;
-            margin: 0;
-        }
-        .hero-text p {
-            font-size: 18px;
-            margin-top: 14px;
-            opacity: 0.85;
-            line-height: 1.6;
+            min-width: 300px;
         }
 
-        .hero img {
-            width: 260px;
-            height: 260px;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .hero-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(to right, #1e293b, #4f46e5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 2px solid var(--primary-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 0 0 auto;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 320px;
+            height: 320px;
             object-fit: cover;
             border-radius: 50%;
-            border: 6px solid var(--primary);
-            box-shadow: var(--shadow);
+            border: 8px solid white;
+            box-shadow: var(--shadow-hover);
+            position: relative;
+            z-index: 2;
         }
 
-        @media(max-width: 768px) {
-            .hero {
-                text-align: center;
-            }
-            .hero img {
-                margin: auto;
-            }
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: var(--gradient);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 3s infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.4; }
         }
 
         /* ======================= SECTIONS ========================== */
-
         section {
-            padding: 80px 6%;
+            padding: 100px 6%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
         }
 
         h2.section-title {
-            font-size: 32px;
-            margin-bottom: 35px;
-            color: var(--primary-dark);
-            text-align: left;
-        }
-
-        .about {
-            max-width: 850px;
-            font-size: 18px;
-            line-height: 1.65;
-        }
-
-        /* ======================= PROJECTS ========================== */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-            gap: 35px;
-        }
-
-        /* Added Dodger Blue border as requested */
-        .project-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: var(--transition);
-            border: 3px solid var(--primary);
-        }
-        .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 14px 35px rgba(0,0,0,0.13);
-        }
-
-        /* Images 100% visibles (object-fit contain) */
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            background: #fff;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-content h3 {
-            margin: 0 0 10px 0;
-            font-size: 20px;
-        }
-
-        /* ensure full description displayed (no ellipsis) */
-        .project-content p {
-            font-size: 15px;
-            opacity: 0.85;
-            line-height: 1.6;
-            margin: 0 0 10px 0;
-            white-space: normal;
-        }
-
-        .stack {
-            margin-top: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .btn-link {
+            font-size: 2.8rem;
+            position: relative;
             display: inline-block;
-            margin-top: 14px;
-            background: var(--primary);
-            color: white !important;
-            padding: 10px 16px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
         }
 
-        .btn-link:hover {
-            background: var(--primary-dark);
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 5px;
+            background: var(--gradient);
+            border-radius: 10px;
         }
 
         /* ======================= SKILLS ========================== */
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .skill {
+        .skill-category {
             background: var(--card-bg);
-            padding: 12px 25px;
-            border-radius: var(--radius);
+            border-radius: var(--radius-lg);
+            padding: 32px;
             box-shadow: var(--shadow);
-            font-size: 15px;
+            transition: var(--transition);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .skill-category h3 i {
+            background: var(--gradient);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-item {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .skill-item.highlight {
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item.highlight::after {
+            content: '⭐';
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* ======================= PROJECTS ========================== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--gradient);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
             font-weight: 600;
         }
 
-        /* ======================= CONTACT ========================== */
-
-        /* contact card wrapper */
-        .contact-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 20px;
-            max-width: 880px;
+        .project-content {
+            padding: 28px;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            border: 3px solid rgba(30,144,255,0.12);
         }
 
-        .contact-row {
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .project-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(99, 102, 241, 0.08);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        /* ======================= CONTACT ========================== */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-item {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            width: 100%;
+            gap: 20px;
+            padding: 20px;
+            background: var(--primary-light);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            background: var(--primary);
+        }
+
+        .contact-item:hover .contact-icon,
+        .contact-item:hover .contact-text {
+            color: white;
+        }
+
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-text p {
+            margin: 0;
+            color: var(--text-light);
+        }
+
+        .contact-item:hover .contact-text p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* ======================= FOOTER ========================== */
+        footer {
+            padding: 40px 6%;
+            text-align: center;
+            background: linear-gradient(to right, #1e293b, #0f172a);
+            color: white;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, #c7d2fe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
             flex-wrap: wrap;
         }
 
-        .contact-left {
-            display:flex;
-            align-items:center;
-            gap:12px;
-            min-width: 220px;
-        }
-
-        .contact-label {
-            font-weight:700;
-        }
-
-        .contact-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 25px;
-            font-weight:700;
-            display: inline-flex;
-            align-items:center;
-            gap:10px;
+        .footer-links a {
+            color: #cbd5e1;
             text-decoration: none;
-            cursor: pointer;
-            box-shadow: var(--shadow);
+            transition: color 0.3s;
         }
 
-        .contact-btn .ico {
-            display:inline-flex;
-            align-items:center;
-            justify-content:center;
-            width:26px;height:26px;border-radius:6px;background:rgba(255,255,255,0.16);
-            font-size:14px;
+        .footer-links a:hover {
+            color: white;
         }
 
-        /* footer */
-        footer {
-            padding: 25px;
-            margin-top: 40px;
-            text-align: center;
-            background: #e7efff;
-            font-size: 14px;
+        .copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 30px;
         }
 
-        @media (max-width: 720px) {
-            .contact-left { min-width: 180px }
-            .project-card img { height: 160px }
-            section { padding: 40px 6% }
-            .hero { padding: 60px 6% 30px }
+        /* ======================= RESPONSIVE ========================== */
+        @media (max-width: 1100px) {
+            .hero-text h2 {
+                font-size: 2.8rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
         }
 
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                margin-top: 20px;
+            }
+            
+            nav.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 80px 6% 60px;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-image img {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .hero-image::before {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                padding: 30px;
+            }
+            
+            section {
+                padding: 60px 6%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 14px 24px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation pour les éléments au scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
 <body>
-
 <header>
-    <h1>Cheikh Ahmad<br>Mbacké</h1>
-
-    <nav>
-        <a href="#about">À propos</a>
-        <a href="#projects">Projets & Réalisations</a>
+    <div class="logo">
+        <div class="logo-icon">C</div>
+        <h1>Cheikh Ahmad<br>Mbacké</h1>
+    </div>
+    
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <nav id="mainNav">
+        <a href="#about" class="active">À propos</a>
+        <a href="#projects">Projets</a>
         <a href="#skills">Compétences</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -321,303 +736,372 @@
 <!-- HERO -->
 <section class="hero">
     <div class="hero-text">
-        <h2>Développeur Web & Mobile Full-Stack</h2>
-        <p>Conception, développement et déploiement de solutions digitales performantes, sécurisées et modernes.</p>
+        <span class="hero-badge">🚀 Développeur Full-Stack</span>
+        <h2>Je transforme vos idées en solutions digitales performantes</h2>
+        <p>Spécialisé dans le développement d'applications web & mobile modernes, sécurisées et évolutives.</p>
+        
+        <div class="hero-actions">
+            <a href="#projects" class="btn-primary">
+                <i class="fas fa-rocket"></i> Voir mes projets
+            </a>
+            <a href="#contact" class="btn-secondary">
+                <i class="fas fa-paper-plane"></i> Me contacter
+            </a>
+        </div>
     </div>
-    <img src="assets/Photo.jpg" alt="Photo de profil">
+    
+    <div class="hero-image">
+        <img src="assets/Photo.jpg" alt="Cheikh Ahmad Mbacké - Développeur Full-Stack">
+    </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about">
-    <h2 class="section-title">À propos</h2>
-    <p class="about">
-        Développeur Full-Stack passionné par les solutions digitales modernes, je conçois des applications web et mobiles sécurisées, performantes et adaptées aux besoins réels des utilisateurs.
-    </p>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-    <h2 class="section-title">Projets & Réalisations</h2>
-
-    <div class="projects-grid">
-
-        <!-- SENBIB App -->
-        <div class="project-card">
-            <img src="assets/senbib.png" alt="Senbib — app" data-full="assets/senbib.png">
-            <div class="project-content">
-                <h3>Senbib — Marketplace de livres numériques</h3>
-                <p>
-                    Senbib est une application mobile de type marketplace pour livre numérique, une bibliothèque numérique sécurisée qui connecte directement auteurs et lecteurs de livres numériques. 
-
-<br><br>
-<strong>Rôle :</strong> Développeur Full-Stack — Conception, développement, tests et mise en production.
-
-<br><br>
-Plateforme numérique permettant aux auteurs africains de vendre leurs œuvres en toute sécurité et aux lecteurs de lire dans une application protégée contre le piratage.
-
-<br><br>
-<strong>Réalisations principales :</strong><br>
-- Développement complet du backend en ASP.NET Core (API REST).<br>
-- Chiffrement des fichiers PDF + stockage sécurisé.<br>
-- Système anti-capture d’écran, anti-export et anti-impression.<br>
-- Authentification sécurisée + rôles auteurs/lecteurs.<br>
-- Intégration de Wave, OM, cartes bancaires, PayPal, crypto.<br>
-- Développement du frontend en .NET MAUI avec lecteur PDF intégré.<br>
-- Déploiement complet sur serveur cloud (AWS).<br>
-- L'application est téléchargeable depuis le site : <a href="https://senbib.com" target="_blank">https://senbib.com</a>.
-                </p>
-                <p class="stack">Stack : ASP.NET Core, .NET MAUI, AWS</p>
-                <a class="btn-link" href="https://senbib.com" target="_blank">Voir le projet</a>
+<section id="about" class="fade-in">
+    <div class="section-header">
+        <h2 class="section-title">À propos de moi</h2>
+    </div>
+    
+    <div class="about-content">
+        <p style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 30px;">
+            Passionné par l'innovation et les nouvelles technologies, je suis développeur Full-Stack avec une expertise dans la création d'applications web et mobiles performantes. Mon approche combine rigueur technique, sens du design et orientation utilisateur.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px;">
+            <div style="background: var(--card-bg); padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow);">
+                <div style="width: 60px; height: 60px; background: var(--gradient); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                    <i class="fas fa-code" style="color: white; font-size: 1.5rem;"></i>
+                </div>
+                <h3 style="margin-bottom: 10px; color: var(--primary);">Développement Full-Stack</h3>
+                <p style="color: var(--text-light);">Backend robuste avec ASP.NET Core, frontend réactif avec technologies modernes, et déploiement cloud.</p>
+            </div>
+            
+            <div style="background: var(--card-bg); padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow);">
+                <div style="width: 60px; height: 60px; background: var(--gradient); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                    <i class="fas fa-mobile-alt" style="color: white; font-size: 1.5rem;"></i>
+                </div>
+                <h3 style="margin-bottom: 10px; color: var(--primary);">Applications Mobile</h3>
+                <p style="color: var(--text-light);">Développement d'applications natives et cross-platform avec .NET MAUI, Flutter et React Native.</p>
+            </div>
+            
+            <div style="background: var(--card-bg); padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow);">
+                <div style="width: 60px; height: 60px; background: var(--gradient); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                    <i class="fas fa-shield-alt" style="color: white; font-size: 1.5rem;"></i>
+                </div>
+                <h3 style="margin-bottom: 10px; color: var(--primary);">Sécurité & Performance</h3>
+                <p style="color: var(--text-light);">Applications sécurisées, optimisées et conçues pour offrir la meilleure expérience utilisateur.</p>
             </div>
         </div>
-
-        <!-- SENBIB Site -->
-        <div class="project-card">
-            <img src="assets/senbib_site.jpg" alt="Senbib site" data-full="assets/senbib_site.jpg">
-            <div class="project-content">
-                <h3>Senbib.com — Site vitrine</h3>
-                <p>
-    Le site vitrine et store de l'application Senbib, développé avec une stack technique moderne pour promouvoir et distribuer l'application mobile.
-
-    <br><br>
-    <strong>Rôle :</strong> Développeur Full-Stack — Conception, développement et déploiement.
-
-    <br><br>
-    Plateforme web servant de vitrine promotionnelle pour l'application Senbib, présentant ses fonctionnalités et permettant le téléchargement de l'application.
-
-    <br><br>
-    <strong>Réalisations principales :</strong><br>
-    - Développement du backend en ASP.NET Core avec C# pour la gestion du contenu.<br>
-    - Création d'un frontend responsive et attractif en HTML/CSS/JavaScript.<br>
-    - Conception d'une interface présentant les fonctionnalités principales de l'application.<br>
-    - Mise en place de la section de téléchargement de l'application mobile.<br>
-    - Optimisation du référencement et de l'expérience utilisateur.<br>
-    - Intégration des éléments graphiques et de branding cohérents avec l'application.
-                </p>
-                <p class="stack">Stack : HTML · CSS · JavaScript · ASP.NET Core</p>
-                <a class="btn-link" href="https://senbib.com" target="_blank">Voir le site</a>
-            </div>
-        </div>
-
-        <!-- Bawol Shop -->
-        <div class="project-card">
-            <img src="assets/bawol.jpg" alt="Bawol Shop" data-full="assets/bawol.jpg">
-            <div class="project-content">
-                <h3>Bawol Shop — E-commerce</h3>
-                <p>
-                    
-<p>
-    C'est un site e-commerce complet développé avec une architecture moderne, permettant la vente en ligne de produits divers.
-
-    <br><br>
-    <strong>Rôle :</strong> Développeur Full-Stack — Conception, développement, tests et mise en production.
-
-    <br><br>
-    Plateforme e-commerce offrant une solution complète de vente en ligne avec gestion des produits, des commandes et des stocks.
-
-    <br><br>
-    <strong>Réalisations principales :</strong><br>
-    - Développement complet du backend en ASP.NET Core (API REST).<br>
-    - Base de données MySQL pour la gestion des données.<br>
-    - Développement du frontend en HTML/CSS/JavaScript.<br>
-    - Système d'authentification sécurisée.<br>
-    - Gestion complète des produits, commandes et stock.<br>
-    - Intégration de multiples solutions de paiement (Wave, Orange Money, cartes bancaires, PayPal, crypto-monnaies).<br>
-    - Déploiement complet et hébergement sur Hostinger.
-</p>
-                <p class="stack">Stack : ASP.NET Core · MySQL · HTML/CSS/JS</p>
-                <a class="btn-link" href="https://senbib.com/bawol/app.html" target="_blank">Voir le site</a>
-            </div>
-        </div>
-
-        <!-- Montre.com -->
-        <div class="project-card">
-            <img src="assets/montre.jpg" alt="Montre.com" data-full="assets/montre.jpg">
-            <div class="project-content">
-                <h3>Montre.com — E-commerce spécialisé montres</h3>
-                <p>
-    C'est un site e-commerce spécialisé dans la vente de montres, développé avec une stack technique moderne et orienté vers l'expérience utilisateur.
-
-    <br><br>
-    <strong>Rôle :</strong> Développeur Full-Stack — Conception, développement et optimisation.
-
-    <br><br>
-    Plateforme en ligne ciblant le secteur de l'horlogerie, avec un accent particulier sur la présentation du catalogue, la navigation et le taux de conversion.
-
-    <br><br>
-    <strong>Réalisations principales :</strong><br>
-    - Développement du backend avec Node.js pour une architecture performante et scalable.<br>
-    - Création d'un frontend responsive et élégant en HTML/CSS/JavaScript.<br>
-    - Conception d'un catalogue produits avancé avec système de filtres et de recherche.<br>
-    - Optimisation des performances de chargement et de l'expérience utilisateur (UX).<br>
-    - Mise en place des fonctionnalités e-commerce essentielles (panier, tunnel de commande).<br>
-    - Orientation spécifique sur l'optimisation du taux de conversion.
-                </p>
-                <p class="stack">Stack : E-commerce · UX · Paiements</p>
-                <a class="btn-link" href="https://www.montre.com/" target="_blank">Voir le site</a>
-            </div>
-        </div>
-
-        <!-- Locaboat -->
-        <div class="project-card">
-            <img src="assets/locaboat.jpg" alt="Locaboat" data-full="assets/locaboat.jpg">
-            <div class="project-content">
-                <h3>Locaboat — Réservation de bateaux</h3>
-                <p>
-    Site professionnel de réservation de bateaux, développé avec une stack technique moderne pour la gestion des offres, promotions et destinations.
-
-    <br><br>
-    <strong>Rôle :</strong> Développeur Full-Stack — Conception, développement et déploiement.
-
-    <br><br>
-    Plateforme de réservation en ligne spécialisée dans la location de bateaux, mettant en valeur les offres exclusives et les destinations phares.
-
-    <br><br>
-    <strong>Réalisations principales :</strong><br>
-    - Développement du backend avec Node.js pour la gestion des réservations et offres.<br>
-    - Création d'un frontend élégant et responsive en HTML/CSS/JavaScript.<br>
-    - Système de mise en avant des promotions et offres spéciales.<br>
-    - Présentation détaillée des destinations et types de bateaux disponibles.<br>
-    - Interface de réservation intuitive et sécurisée.<br>
-    - Optimisation pour les conversions et l'expérience utilisateur.
-                </p>
-                <p class="stack">Stack : Site vitrine · Réservation</p>
-                <a class="btn-link" href="https://www.locaboat.com/avril-early-booking-2026" target="_blank">Voir le site</a>
-            </div>
-        </div>
-
     </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
-    <h2 class="section-title">Compétences</h2>
-    <div class="skills">
-        <div class="skill">ASP.NET Core</div>
-        <div class="skill">C#</div>
-        <div class="skill">HTML/CSS/JavaScript</div>
-        <div class="skill">MySQL / PostgreSQL</div>
-        <div class="skill">.NET MAUI</div>
-        <div class="skill">API REST</div>
-        <div class="skill">Cloud & Déploiement</div>
-        <div class="skill">Architecture & Sécurité</div>
-        <div class="skill">Next.js</div>
-        <div class="skill">TypeScript</div>
-        <div class="skill">Node.js</div>
+<section id="skills" class="fade-in">
+    <div class="section-header">
+        <h2 class="section-title">Mes Compétences</h2>
+    </div>
+    
+    <div class="skills-container">
+        <div class="skill-category">
+            <h3><i class="fas fa-server"></i> Backend</h3>
+            <div class="skills-grid">
+                <div class="skill-item">ASP.NET Core</div>
+                <div class="skill-item">C#</div>
+                <div class="skill-item">Node.js</div>
+                <div class="skill-item">API REST</div>
+                <div class="skill-item">GraphQL</div>
+                <div class="skill-item">MySQL / PostgreSQL</div>
+            </div>
+        </div>
+        
+        <div class="skill-category">
+            <h3><i class="fas fa-desktop"></i> Frontend & Mobile</h3>
+            <div class="skills-grid">
+                <div class="skill-item highlight">Flutter</div>
+                <div class="skill-item">Dart</div>
+                <div class="skill-item highlight">React</div>
+                <div class="skill-item">Next.js</div>
+                <div class="skill-item">TypeScript</div>
+                <div class="skill-item">HTML/CSS/JavaScript</div>
+                <div class="skill-item">.NET MAUI</div>
+                <div class="skill-item">React Native</div>
+            </div>
+        </div>
+        
+        <div class="skill-category">
+            <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+            <div class="skills-grid">
+                <div class="skill-item">AWS</div>
+                <div class="skill-item">Docker</div>
+                <div class="skill-item">CI/CD</div>
+                <div class="skill-item">Git</div>
+                <div class="skill-item">Nginx</div>
+                <div class="skill-item">Linux</div>
+            </div>
+        </div>
+        
+        <div class="skill-category">
+            <h3><i class="fas fa-tools"></i> Outils & Méthodologies</h3>
+            <div class="skills-grid">
+                <div class="skill-item">Architecture Logicielle</div>
+                <div class="skill-item">Sécurité Applicative</div>
+                <div class="skill-item">Tests Unitaires</div>
+                <div class="skill-item">Agile/Scrum</div>
+                <div class="skill-item">UI/UX Design</div>
+                <div class="skill-item">Figma</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade-in">
+    <div class="section-header">
+        <h2 class="section-title">Mes Projets</h2>
+    </div>
+    
+    <div class="projects-grid">
+        <!-- SENBIB App -->
+        <div class="project-card">
+            <div class="project-image">
+                <img src="assets/senbib.png" alt="Senbib — Marketplace de livres numériques">
+                <span class="project-badge">Full-Stack</span>
+            </div>
+            <div class="project-content">
+                <h3>Senbib — Marketplace de livres</h3>
+                <p>Plateforme complète pour la vente et lecture sécurisée de livres numériques avec système anti-piratage avancé.</p>
+                
+                <div class="project-tech">
+                    <span class="tech-tag">ASP.NET Core</span>
+                    <span class="tech-tag">.NET MAUI</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">C#</span>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://senbib.com" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                        <i class="fas fa-external-link-alt"></i> Voir le projet
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bawol Shop -->
+        <div class="project-card">
+            <div class="project-image">
+                <img src="assets/bawol.jpg" alt="Bawol Shop — E-commerce">
+                <span class="project-badge">E-commerce</span>
+            </div>
+            <div class="project-content">
+                <h3>Bawol Shop — E-commerce</h3>
+                <p>Plateforme e-commerce complète avec gestion des produits, commandes et intégration de multiples moyens de paiement.</p>
+                
+                <div class="project-tech">
+                    <span class="tech-tag">ASP.NET Core</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">HTML/CSS/JS</span>
+                    <span class="tech-tag">API REST</span>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://senbib.com/bawol/app.html" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                        <i class="fas fa-external-link-alt"></i> Visiter
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Montre.com -->
+        <div class="project-card">
+            <div class="project-image">
+                <img src="assets/montre.jpg" alt="Montre.com — E-commerce spécialisé">
+                <span class="project-badge">E-commerce</span>
+            </div>
+            <div class="project-content">
+                <h3>Montre.com — E-commerce horloger</h3>
+                <p>Site e-commerce spécialisé dans la vente de montres avec interface élégante et expérience utilisateur optimisée.</p>
+                
+                <div class="project-tech">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">UX Design</span>
+                    <span class="tech-tag">Paiements</span>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://www.montre.com/" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                        <i class="fas fa-external-link-alt"></i> Visiter
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-    <h2 class="section-title">Contact</h2>
-
-    <div class="contact-card">
-        <!-- Email row -->
-        <div class="contact-row">
-            <div class="contact-left">
+<section id="contact" class="fade-in">
+    <div class="section-header">
+        <h2 class="section-title">Contactez-moi</h2>
+    </div>
+    
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Travaillons ensemble !</h3>
+            <p>Vous avez un projet ? Discutons de la façon dont je peux vous aider à le concrétiser.</p>
+            
+            <div class="contact-items">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <p>cheikhahmadmbacke74@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Téléphone</h4>
+                        <p>+221 77 467 72 17</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Localisation</h4>
+                        <p>Sénégal, Dakar</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/senbib" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
         
-            </div>
-            <div>
-                <a class="contact-btn" href="mailto:cheikhahmadmbacke74@gmail.com">
-                    <span class="ico">📧</span> Écrivez-moi sur E-mail
-                </a>
-            </div>
-        </div>
-
-        <!-- Phone row -->
-        <div class="contact-row">
-            <div class="contact-left">
-                
-            </div>
-            <div>
-                <a class="contact-btn" href="tel:+221774677217">
-                    <span class="ico">📞</span> Appelez-moi
-                </a>
-            </div>
-        </div>
-
-        <!-- LinkedIn row -->
-        <div class="contact-row">
-            <div class="contact-left">
-                
-            </div>
-            <div>
-                <a class="contact-btn" href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank" rel="noopener">
-                    <span class="ico">🔗</span> Voir mon profil LinkedIn
-                </a>
-            </div>
+        <div style="background: var(--primary-light); border-radius: var(--radius-lg); padding: 40px; display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="color: var(--primary); margin-bottom: 20px;">Disponible pour de nouveaux projets</h3>
+            <p style="color: var(--text-light); margin-bottom: 30px;">
+                Je suis actuellement disponible pour des missions freelance ou des opportunités en CDI. N'hésitez pas à me contacter pour discuter de votre projet.
+            </p>
+            <a href="mailto:cheikhahmadmbacke74@gmail.com" class="btn-primary" style="text-align: center;">
+                <i class="fas fa-paper-plane"></i> Envoyer un message
+            </a>
         </div>
     </div>
 </section>
 
-<footer>© 2025 — Cheikh Ahmad Mbacké</footer>
-
-<!-- Modal full-screen simple (version A) -->
-<div id="imgModal" style="
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.85);
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-">
-    <div style="max-width:95vw; max-height:94vh; position:relative;">
-        <button id="closeModal" style="
-            position:absolute; top:10px; right:10px; z-index:2;
-            background:rgba(255,255,255,0.08); color:#fff; border:0; padding:8px 10px; border-radius:8px; font-weight:700;
-        ">Fermer ✕</button>
-        <img id="modalImg" src="" alt="Agrandissement" style="max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:6px;">
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">Cheikh Ahmad Mbacké</div>
+        
+        <div class="footer-links">
+            <a href="#about">À propos</a>
+            <a href="#projects">Projets</a>
+            <a href="#skills">Compétences</a>
+            <a href="#contact">Contact</a>
+        </div>
+        
+        <p class="copyright">
+            © 2025 — Développeur Full-Stack. Tous droits réservés.
+        </p>
     </div>
-</div>
+</footer>
 
 <script>
-    // Simple modal (A) for images: click image -> full screen modal
-    (function(){
-        const modal = document.getElementById('imgModal');
-        const modalImg = document.getElementById('modalImg');
-        const closeBtn = document.getElementById('closeModal');
-
-        document.querySelectorAll('.project-card img').forEach(img=>{
-            img.addEventListener('click', function(e){
-                const src = this.dataset.full || this.src;
-                modalImg.src = src;
-                modal.style.display = 'flex';
-                document.documentElement.style.overflow = 'hidden';
-                document.body.style.overflow = 'hidden';
-            });
+    // Menu mobile
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+            ? '<i class="fas fa-times"></i>' 
+            : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Navigation active state
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+    
+    function updateActiveNav() {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
         });
-
-        function closeModal(){
-            modal.style.display = 'none';
-            modalImg.src = '';
-            document.documentElement.style.overflow = '';
-            document.body.style.overflow = '';
-        }
-
-        closeBtn.addEventListener('click', closeModal);
-
-        modal.addEventListener('click', function(e){
-            if (e.target === modal) closeModal();
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
         });
-
-        document.addEventListener('keydown', function(e){
-            if (e.key === 'Escape') closeModal();
+    }
+    
+    window.addEventListener('scroll', updateActiveNav);
+    
+    // Animation au scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    function checkFade() {
+        fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementTop < windowHeight - 100) {
+                element.classList.add('visible');
+            }
         });
-
-        // Smooth scroll for internal anchors
-        document.querySelectorAll('a[href^="#"]').forEach(a=>{
-            a.addEventListener('click', function(e){
-                const href = this.getAttribute('href');
-                if (href.length > 1) {
-                    e.preventDefault();
-                    const el = document.querySelector(href);
-                    if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
-                }
-            });
+    }
+    
+    window.addEventListener('scroll', checkFade);
+    window.addEventListener('load', checkFade);
+    
+    // Close mobile menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         });
-    })();
+    });
+    
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 </script>
-
 </body>
-    </html>
+</html>
