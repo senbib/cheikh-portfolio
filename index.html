@@ -46,19 +46,31 @@
             font-weight: 700;
         }
 
+        /* Centrage global */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         /* ======================= HEADER ========================== */
         header {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
-            padding: 18px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 18px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(99, 102, 241, 0.1);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
         }
 
         .logo {
@@ -88,6 +100,7 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.2;
+            text-align: left;
         }
 
         nav {
@@ -128,18 +141,19 @@
 
         /* ======================= HERO ========================== */
         .hero {
-            padding: 100px 6% 80px;
+            padding: 100px 0;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: 60px;
-            max-width: 1400px;
-            margin: 0 auto;
         }
 
-        .hero-text {
+        .hero-content {
             flex: 1;
             min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .hero-badge {
@@ -151,6 +165,7 @@
             font-weight: 600;
             margin-bottom: 20px;
             border: 1px solid rgba(99, 102, 241, 0.2);
+            text-align: center;
         }
 
         .hero-text h2 {
@@ -161,6 +176,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-align: left;
         }
 
         .hero-text p {
@@ -168,12 +184,15 @@
             color: var(--text-light);
             margin-bottom: 30px;
             max-width: 600px;
+            text-align: left;
         }
 
         .hero-actions {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
+            justify-content: flex-start;
+            width: 100%;
         }
 
         .btn-primary {
@@ -190,6 +209,7 @@
             box-shadow: var(--shadow);
             border: none;
             cursor: pointer;
+            text-align: center;
         }
 
         .btn-primary:hover {
@@ -210,6 +230,7 @@
             transition: var(--transition);
             box-shadow: var(--shadow);
             border: 2px solid var(--primary-light);
+            text-align: center;
         }
 
         .btn-secondary:hover {
@@ -220,6 +241,9 @@
         .hero-image {
             flex: 0 0 auto;
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero-image img {
@@ -254,9 +278,7 @@
 
         /* ======================= SECTIONS ========================== */
         section {
-            padding: 100px 6%;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 100px 0;
         }
 
         .section-header {
@@ -264,12 +286,15 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 60px;
+            text-align: left;
         }
 
         h2.section-title {
             font-size: 2.8rem;
             position: relative;
             display: inline-block;
+            text-align: left;
+            width: 100%;
         }
 
         h2.section-title::after {
@@ -297,6 +322,8 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             border: 1px solid rgba(99, 102, 241, 0.1);
+            display: flex;
+            flex-direction: column;
         }
 
         .skill-category:hover {
@@ -328,6 +355,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
+            flex-grow: 1;
         }
 
         .skill-item {
@@ -340,27 +368,13 @@
             align-items: center;
             gap: 8px;
             transition: var(--transition);
+            height: fit-content;
         }
 
         .skill-item:hover {
             background: var(--primary);
             color: white;
             transform: scale(1.05);
-        }
-
-        .skill-item.highlight {
-            background: var(--gradient);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-item.highlight::after {
-            content: '⭐';
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
         }
 
         /* ======================= PROJECTS ========================== */
@@ -391,12 +405,15 @@
             height: 220px;
             overflow: hidden;
             position: relative;
+            cursor: pointer;
         }
 
         .project-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            background-color: #f9fafb;
+            padding: 15px;
             transition: transform 0.8s ease;
         }
 
@@ -457,6 +474,16 @@
             margin-top: auto;
         }
 
+        .note-projets {
+            text-align: center;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+            padding-top: 20px;
+        }
+
         /* ======================= CONTACT ========================== */
         .contact-container {
             display: grid;
@@ -494,6 +521,12 @@
             background: var(--primary-light);
             border-radius: var(--radius-md);
             transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            border: none;
+            width: 100%;
+            text-align: left;
         }
 
         .contact-item:hover {
@@ -516,6 +549,7 @@
             justify-content: center;
             color: white;
             font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
         .contact-text h4 {
@@ -560,7 +594,7 @@
 
         /* ======================= FOOTER ========================== */
         footer {
-            padding: 40px 6%;
+            padding: 40px 0;
             text-align: center;
             background: linear-gradient(to right, #1e293b, #0f172a);
             color: white;
@@ -570,6 +604,7 @@
         .footer-content {
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .footer-logo {
@@ -606,6 +641,55 @@
             margin-top: 30px;
         }
 
+        /* Modal pour les images */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+        }
+
         /* ======================= RESPONSIVE ========================== */
         @media (max-width: 1100px) {
             .hero-text h2 {
@@ -618,8 +702,9 @@
         }
 
         @media (max-width: 768px) {
-            header {
+            .header-container {
                 flex-wrap: wrap;
+                padding: 0 15px;
             }
             
             nav {
@@ -640,7 +725,17 @@
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding: 80px 6% 60px;
+                padding: 80px 0 60px;
+            }
+            
+            .hero-content {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .hero-text h2,
+            .hero-text p {
+                text-align: center;
             }
             
             .hero-actions {
@@ -676,7 +771,11 @@
             }
             
             section {
-                padding: 60px 6%;
+                padding: 60px 0;
+            }
+            
+            .container {
+                padding: 0 15px;
             }
         }
 
@@ -698,6 +797,10 @@
             .skills-container {
                 grid-template-columns: 1fr;
             }
+            
+            .contact-container {
+                padding: 20px;
+            }
         }
 
         /* Animation pour les éléments au scroll */
@@ -715,30 +818,42 @@
 </head>
 
 <body>
-<header>
-    <div class="logo">
-        <div class="logo-icon">C</div>
-        <h1>Cheikh Ahmad<br>Mbacké</h1>
+<!-- Modal pour les images -->
+<div class="modal" id="imageModal">
+    <div class="close-modal" onclick="closeModal()">×</div>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Agrandissement">
     </div>
-    
-    <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <i class="fas fa-bars"></i>
-    </button>
-    
-    <nav id="mainNav">
-        <a href="#about" class="active">À propos</a>
-        <a href="#projects">Projets</a>
-        <a href="#skills">Compétences</a>
-        <a href="#contact">Contact</a>
-    </nav>
+</div>
+
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <div class="logo-icon">C</div>
+            <h1>Cheikh Ahmad<br>Mbacké</h1>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav id="mainNav">
+            <a href="#about" class="active">À propos</a>
+            <a href="#projects">Projets</a>
+            <a href="#skills">Compétences</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
 </header>
 
 <!-- HERO -->
-<section class="hero">
-    <div class="hero-text">
-        <span class="hero-badge">🚀 Développeur Full-Stack</span>
-        <h2>Je transforme vos idées en solutions digitales performantes</h2>
-        <p>Spécialisé dans le développement d'applications web & mobile modernes, sécurisées et évolutives.</p>
+<section class="hero container">
+    <div class="hero-content">
+        <span class="hero-badge">Développeur Full-Stack</span>
+        <div class="hero-text">
+            <h2>Je transforme vos idées en solutions digitales performantes</h2>
+            <p>Spécialisé dans le développement d'applications web & mobile modernes, sécurisées et évolutives.</p>
+        </div>
         
         <div class="hero-actions">
             <a href="#projects" class="btn-primary">
@@ -757,38 +872,40 @@
 
 <!-- ABOUT -->
 <section id="about" class="fade-in">
-    <div class="section-header">
-        <h2 class="section-title">À propos de moi</h2>
-    </div>
-    
-    <div class="about-content">
-        <p style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 30px;">
-            Passionné par l'innovation et les nouvelles technologies, je suis développeur Full-Stack avec une expertise dans la création d'applications web et mobiles performantes. Mon approche combine rigueur technique, sens du design et orientation utilisateur.
-        </p>
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">À propos de moi</h2>
+        </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px;">
-            <div style="background: var(--card-bg); padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow);">
-                <div style="width: 60px; height: 60px; background: var(--gradient); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-                    <i class="fas fa-code" style="color: white; font-size: 1.5rem;"></i>
-                </div>
-                <h3 style="margin-bottom: 10px; color: var(--primary);">Développement Full-Stack</h3>
-                <p style="color: var(--text-light);">Backend robuste avec ASP.NET Core, frontend réactif avec technologies modernes, et déploiement cloud.</p>
-            </div>
+        <div class="about-content">
+            <p style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 30px;">
+                Passionné par l'innovation et les nouvelles technologies, je suis développeur Full-Stack avec une expertise dans la création d'applications web et mobiles performantes. Mon approche combine rigueur technique, sens du design et orientation utilisateur.
+            </p>
             
-            <div style="background: var(--card-bg); padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow);">
-                <div style="width: 60px; height: 60px; background: var(--gradient); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-                    <i class="fas fa-mobile-alt" style="color: white; font-size: 1.5rem;"></i>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px;">
+                <div style="background: var(--card-bg); padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow);">
+                    <div style="width: 60px; height: 60px; background: var(--gradient); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i class="fas fa-code" style="color: white; font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="margin-bottom: 10px; color: var(--primary);">Développement Full-Stack</h3>
+                    <p style="color: var(--text-light);">Backend robuste avec ASP.NET Core, frontend réactif avec technologies modernes, et déploiement cloud.</p>
                 </div>
-                <h3 style="margin-bottom: 10px; color: var(--primary);">Applications Mobile</h3>
-                <p style="color: var(--text-light);">Développement d'applications natives et cross-platform avec .NET MAUI, Flutter et React Native.</p>
-            </div>
-            
-            <div style="background: var(--card-bg); padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow);">
-                <div style="width: 60px; height: 60px; background: var(--gradient); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-                    <i class="fas fa-shield-alt" style="color: white; font-size: 1.5rem;"></i>
+                
+                <div style="background: var(--card-bg); padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow);">
+                    <div style="width: 60px; height: 60px; background: var(--gradient); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i class="fas fa-mobile-alt" style="color: white; font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="margin-bottom: 10px; color: var(--primary);">Applications Mobile</h3>
+                    <p style="color: var(--text-light);">Développement d'applications natives et cross-platform avec .NET MAUI, Flutter et React Native.</p>
                 </div>
-                <h3 style="margin-bottom: 10px; color: var(--primary);">Sécurité & Performance</h3>
-                <p style="color: var(--text-light);">Applications sécurisées, optimisées et conçues pour offrir la meilleure expérience utilisateur.</p>
+                
+                <div style="background: var(--card-bg); padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow);">
+                    <div style="width: 60px; height: 60px; background: var(--gradient); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i class="fas fa-shield-alt" style="color: white; font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="margin-bottom: 10px; color: var(--primary);">Sécurité & Performance</h3>
+                    <p style="color: var(--text-light);">Applications sécurisées, optimisées et conçues pour offrir la meilleure expérience utilisateur.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -796,58 +913,63 @@
 
 <!-- SKILLS -->
 <section id="skills" class="fade-in">
-    <div class="section-header">
-        <h2 class="section-title">Mes Compétences</h2>
-    </div>
-    
-    <div class="skills-container">
-        <div class="skill-category">
-            <h3><i class="fas fa-server"></i> Backend</h3>
-            <div class="skills-grid">
-                <div class="skill-item">ASP.NET Core</div>
-                <div class="skill-item">C#</div>
-                <div class="skill-item">Node.js</div>
-                <div class="skill-item">API REST</div>
-                <div class="skill-item">GraphQL</div>
-                <div class="skill-item">MySQL / PostgreSQL</div>
-            </div>
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Mes Compétences</h2>
         </div>
         
-        <div class="skill-category">
-            <h3><i class="fas fa-desktop"></i> Frontend & Mobile</h3>
-            <div class="skills-grid">
-                <div class="skill-item highlight">Flutter</div>
-                <div class="skill-item">Dart</div>
-                <div class="skill-item highlight">React</div>
-                <div class="skill-item">Next.js</div>
-                <div class="skill-item">TypeScript</div>
-                <div class="skill-item">HTML/CSS/JavaScript</div>
-                <div class="skill-item">.NET MAUI</div>
-                <div class="skill-item">React Native</div>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-server"></i> Backend</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">ASP.NET Core</div>
+                    <div class="skill-item">C#</div>
+                    <div class="skill-item">Node.js</div>
+                    <div class="skill-item">API REST</div>
+                    <div class="skill-item">GraphQL</div>
+                    <div class="skill-item">MySQL / PostgreSQL</div>
+                </div>
             </div>
-        </div>
-        
-        <div class="skill-category">
-            <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-            <div class="skills-grid">
-                <div class="skill-item">AWS</div>
-                <div class="skill-item">Docker</div>
-                <div class="skill-item">CI/CD</div>
-                <div class="skill-item">Git</div>
-                <div class="skill-item">Nginx</div>
-                <div class="skill-item">Linux</div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-desktop"></i> Frontend & Mobile</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">Flutter</div>
+                    <div class="skill-item">Dart</div>
+                    <div class="skill-item">React</div>
+                    <div class="skill-item">Next.js</div>
+                    <div class="skill-item">TypeScript</div>
+                    <div class="skill-item">HTML/CSS/JavaScript</div>
+                    <div class="skill-item">.NET MAUI</div>
+                    <div class="skill-item">React Native</div>
+                </div>
             </div>
-        </div>
-        
-        <div class="skill-category">
-            <h3><i class="fas fa-tools"></i> Outils & Méthodologies</h3>
-            <div class="skills-grid">
-                <div class="skill-item">Architecture Logicielle</div>
-                <div class="skill-item">Sécurité Applicative</div>
-                <div class="skill-item">Tests Unitaires</div>
-                <div class="skill-item">Agile/Scrum</div>
-                <div class="skill-item">UI/UX Design</div>
-                <div class="skill-item">Figma</div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">AWS</div>
+                    <div class="skill-item">Azure</div>
+                    <div class="skill-item">GitHub</div>
+                    <div class="skill-item">Docker</div>
+                    <div class="skill-item">CI/CD</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">Nginx</div>
+                    <div class="skill-item">Linux</div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Outils & Méthodologies</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">Architecture Logicielle</div>
+                    <div class="skill-item">Sécurité Applicative</div>
+                    <div class="skill-item">Tests Unitaires</div>
+                    <div class="skill-item">Agile/Scrum</div>
+                    <div class="skill-item">UI/UX Design</div>
+                    <div class="skill-item">Figma</div>
+                    <div class="skill-item">Adobe XD</div>
+                </div>
             </div>
         </div>
     </div>
@@ -855,152 +977,185 @@
 
 <!-- PROJECTS -->
 <section id="projects" class="fade-in">
-    <div class="section-header">
-        <h2 class="section-title">Mes Projets</h2>
-    </div>
-    
-    <div class="projects-grid">
-        <!-- SENBIB App -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="assets/senbib.png" alt="Senbib — Marketplace de livres numériques">
-                <span class="project-badge">Full-Stack</span>
-            </div>
-            <div class="project-content">
-                <h3>Senbib — Marketplace de livres</h3>
-                <p>Plateforme complète pour la vente et lecture sécurisée de livres numériques avec système anti-piratage avancé.</p>
-                
-                <div class="project-tech">
-                    <span class="tech-tag">ASP.NET Core</span>
-                    <span class="tech-tag">.NET MAUI</span>
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">C#</span>
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Mes Projets</h2>
+        </div>
+        
+        <div class="projects-grid">
+            <!-- SENBIB App -->
+            <div class="project-card">
+                <div class="project-image" onclick="openModal('assets/senbib.png')">
+                    <img src="assets/senbib.png" alt="Senbib — Marketplace de livres numériques">
+                    <span class="project-badge">Mobile</span>
                 </div>
-                
-                <div class="project-links">
-                    <a href="https://senbib.com" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
-                        <i class="fas fa-external-link-alt"></i> Voir le projet
-                    </a>
+                <div class="project-content">
+                    <h3>Senbib — Marketplace de livres numériques</h3>
+                    <p>Senbib est une application mobile de type marketplace pour livre numérique, une bibliothèque numérique sécurisée qui connecte directement auteurs et lecteurs de livres numériques. Plateforme numérique permettant aux auteurs africains de vendre leurs œuvres en toute sécurité et aux lecteurs de lire dans une application protégée contre le piratage.</p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">ASP.NET Core</span>
+                        <span class="tech-tag">.NET MAUI</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">C#</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://senbib.com" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                            <i class="fas fa-download"></i> Installer l'application
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SENBIB Site -->
+            <div class="project-card">
+                <div class="project-image" onclick="openModal('assets/senbib_site.jpg')">
+                    <img src="assets/senbib_site.jpg" alt="Senbib — Site vitrine">
+                    <span class="project-badge">Web</span>
+                </div>
+                <div class="project-content">
+                    <h3>Senbib.com — Site vitrine</h3>
+                    <p>Le site vitrine et store de l'application Senbib, développé avec une stack technique moderne pour promouvoir et distribuer l'application mobile. Plateforme web servant de vitrine promotionnelle pour l'application Senbib, présentant ses fonctionnalités et permettant le téléchargement de l'application.</p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML/CSS/JS</span>
+                        <span class="tech-tag">ASP.NET Core</span>
+                        <span class="tech-tag">Responsive</span>
+                        <span class="tech-tag">SEO</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://senbib.com" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                            <i class="fas fa-external-link-alt"></i> Visiter le site
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bawol Shop -->
+            <div class="project-card">
+                <div class="project-image" onclick="openModal('assets/bawol.jpg')">
+                    <img src="assets/bawol.jpg" alt="Bawol Shop — E-commerce">
+                    <span class="project-badge">E-commerce</span>
+                </div>
+                <div class="project-content">
+                    <h3>Bawol Shop — E-commerce</h3>
+                    <p>Plateforme e-commerce complète avec gestion des produits, commandes et intégration de multiples moyens de paiement (Wave, Orange Money, cartes bancaires, PayPal, crypto-monnaies). Développement full-stack avec backend en ASP.NET Core et frontend en HTML/CSS/JavaScript.</p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">ASP.NET Core</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">HTML/CSS/JS</span>
+                        <span class="tech-tag">API REST</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://senbib.com/bawol/app.html" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                            <i class="fas fa-external-link-alt"></i> Visiter
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Montre.com -->
+            <div class="project-card">
+                <div class="project-image" onclick="openModal('assets/montre.jpg')">
+                    <img src="assets/montre.jpg" alt="Montre.com — E-commerce spécialisé">
+                    <span class="project-badge">E-commerce</span>
+                </div>
+                <div class="project-content">
+                    <h3>Montre.com — E-commerce horloger</h3>
+                    <p>Site e-commerce spécialisé dans la vente de montres avec interface élégante et expérience utilisateur optimisée. Plateforme en ligne ciblant le secteur de l'horlogerie, avec un accent particulier sur la présentation du catalogue, la navigation et le taux de conversion.</p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">UX Design</span>
+                        <span class="tech-tag">Paiements</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://www.montre.com/" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                            <i class="fas fa-external-link-alt"></i> Visiter
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <!-- Bawol Shop -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="assets/bawol.jpg" alt="Bawol Shop — E-commerce">
-                <span class="project-badge">E-commerce</span>
-            </div>
-            <div class="project-content">
-                <h3>Bawol Shop — E-commerce</h3>
-                <p>Plateforme e-commerce complète avec gestion des produits, commandes et intégration de multiples moyens de paiement.</p>
-                
-                <div class="project-tech">
-                    <span class="tech-tag">ASP.NET Core</span>
-                    <span class="tech-tag">MySQL</span>
-                    <span class="tech-tag">HTML/CSS/JS</span>
-                    <span class="tech-tag">API REST</span>
-                </div>
-                
-                <div class="project-links">
-                    <a href="https://senbib.com/bawol/app.html" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
-                        <i class="fas fa-external-link-alt"></i> Visiter
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Montre.com -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="assets/montre.jpg" alt="Montre.com — E-commerce spécialisé">
-                <span class="project-badge">E-commerce</span>
-            </div>
-            <div class="project-content">
-                <h3>Montre.com — E-commerce horloger</h3>
-                <p>Site e-commerce spécialisé dans la vente de montres avec interface élégante et expérience utilisateur optimisée.</p>
-                
-                <div class="project-tech">
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">UX Design</span>
-                    <span class="tech-tag">Paiements</span>
-                </div>
-                
-                <div class="project-links">
-                    <a href="https://www.montre.com/" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
-                        <i class="fas fa-external-link-alt"></i> Visiter
-                    </a>
-                </div>
-            </div>
-        </div>
+        <p class="note-projets">
+            Note: Cette liste présente certaines de mes réalisations. Mes projets sont variés et incluent également des applications privées, des solutions d'entreprise et des collaborations freelance.
+        </p>
     </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="fade-in">
-    <div class="section-header">
-        <h2 class="section-title">Contactez-moi</h2>
-    </div>
-    
-    <div class="contact-container">
-        <div class="contact-info">
-            <h3>Travaillons ensemble !</h3>
-            <p>Vous avez un projet ? Discutons de la façon dont je peux vous aider à le concrétiser.</p>
-            
-            <div class="contact-items">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h4>Email</h4>
-                        <p>cheikhahmadmbacke74@gmail.com</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h4>Téléphone</h4>
-                        <p>+221 77 467 72 17</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h4>Localisation</h4>
-                        <p>Sénégal, Dakar</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/senbib" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://twitter.com" target="_blank" class="social-link">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </div>
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Contactez-moi</h2>
         </div>
         
-        <div style="background: var(--primary-light); border-radius: var(--radius-lg); padding: 40px; display: flex; flex-direction: column; justify-content: center;">
-            <h3 style="color: var(--primary); margin-bottom: 20px;">Disponible pour de nouveaux projets</h3>
-            <p style="color: var(--text-light); margin-bottom: 30px;">
-                Je suis actuellement disponible pour des missions freelance ou des opportunités en CDI. N'hésitez pas à me contacter pour discuter de votre projet.
-            </p>
-            <a href="mailto:cheikhahmadmbacke74@gmail.com" class="btn-primary" style="text-align: center;">
-                <i class="fas fa-paper-plane"></i> Envoyer un message
-            </a>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Travaillons ensemble !</h3>
+                <p>Vous avez un projet ? Discutons de la façon dont je peux vous aider à le concrétiser.</p>
+                
+                <div class="contact-items">
+                    <a href="mailto:cheikhahmadmbacke74@gmail.com" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>cheikhahmadmbacke74@gmail.com</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://wa.me/221774677217?text=Bonjour%20Cheikh,%20je%20vous%20contacte%20depuis%20votre%20portfolio" target="_blank" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Téléphone / WhatsApp</h4>
+                            <p>+221 77 467 72 17</p>
+                        </div>
+                    </a>
+                    
+                    <div class="contact-item" style="cursor: default;">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Localisation</h4>
+                            <p>Sénégal, Dakar</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1BsBHr3cur/" target="_blank" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://github.com/senbib" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div style="background: var(--primary-light); border-radius: var(--radius-lg); padding: 40px; display: flex; flex-direction: column; justify-content: center;">
+                <h3 style="color: var(--primary); margin-bottom: 20px;">Disponible pour de nouveaux projets</h3>
+                <p style="color: var(--text-light); margin-bottom: 30px;">
+                    Je suis actuellement disponible pour des missions freelance ou des opportunités en CDI. N'hésitez pas à me contacter pour discuter de votre projet.
+                </p>
+                <a href="mailto:cheikhahmadmbacke74@gmail.com" class="btn-primary" style="text-align: center;">
+                    <i class="fas fa-paper-plane"></i> Envoyer un message
+                </a>
+            </div>
         </div>
     </div>
 </section>
@@ -1102,6 +1257,43 @@
             }
         });
     });
+    
+    // Modal pour les images
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    
+    function openModal(imageSrc) {
+        modalImage.src = imageSrc;
+        imageModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+        imageModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Fermer la modal en cliquant en dehors de l'image
+    imageModal.addEventListener('click', function(e) {
+        if (e.target === imageModal) {
+            closeModal();
+        }
+    });
+    
+    // Fermer la modal avec la touche Échap
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+    
+    // Email direct
+    const emailItem = document.querySelector('.contact-item[href^="mailto:"]');
+    if (emailItem) {
+        emailItem.addEventListener('click', function(e) {
+            // L'action par défaut du lien mailto suffit
+        });
+    }
 </script>
 </body>
 </html>
