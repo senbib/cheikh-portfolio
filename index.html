@@ -3,7 +3,99 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio — Cheikh Ahmad Mbacké</title>
+    <title>Cheikh Ahmad Mbacké | Développeur Full-Stack Web & Mobile</title>
+    <meta name="description" content="Portfolio de Cheikh Ahmad Mbacké, développeur Full-Stack spécialisé en applications web et mobile: ASP.NET Core, React, React Native, .NET MAUI, Node.js, cloud et fintech." />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Cheikh Ahmad Mbacké" />
+    <meta name="theme-color" content="#6366f1" />
+    <meta name="geo.region" content="SN-DK" />
+    <meta name="geo.placename" content="Dakar" />
+    <meta name="geo.position" content="14.7167;-17.4677" />
+    <meta name="ICBM" content="14.7167, -17.4677" />
+    <link rel="canonical" href="https://portfolio.cheikhahmadmbacke.com/" />
+    <link rel="alternate" hreflang="fr-SN" href="https://portfolio.cheikhahmadmbacke.com/" />
+    <link rel="alternate" hreflang="fr" href="https://portfolio.cheikhahmadmbacke.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.cheikhahmadmbacke.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Portfolio — Cheikh Ahmad Mbacké" />
+    <meta property="og:title" content="Cheikh Ahmad Mbacké | Développeur Full-Stack Web & Mobile" />
+    <meta property="og:description" content="Développement d'applications web et mobile modernes, sécurisées et évolutives. Découvrez mes projets et compétences techniques." />
+    <meta property="og:url" content="https://portfolio.cheikhahmadmbacke.com/" />
+    <meta property="og:image" content="https://portfolio.cheikhahmadmbacke.com/assets/Photo.jpg" />
+    <meta property="og:image:alt" content="Portrait de Cheikh Ahmad Mbacké, développeur Full-Stack" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cheikh Ahmad Mbacké | Développeur Full-Stack" />
+    <meta name="twitter:description" content="Portfolio professionnel: projets web/mobile, backend, cloud et fintech." />
+    <meta name="twitter:image" content="https://portfolio.cheikhahmadmbacke.com/assets/Photo.jpg" />
+    <meta name="twitter:image:alt" content="Portrait de Cheikh Ahmad Mbacké" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Cheikh Ahmad Mbacké",
+            "jobTitle": "Développeur Full-Stack",
+            "url": "https://portfolio.cheikhahmadmbacke.com/",
+            "image": "https://portfolio.cheikhahmadmbacke.com/assets/Photo.jpg",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Dakar",
+                "addressCountry": "SN"
+            },
+            "sameAs": [
+                "https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244",
+                "https://www.facebook.com/share/1BsBHr3cur/"
+            ],
+            "knowsAbout": [
+                "ASP.NET Core",
+                "C#",
+                "React",
+                "React Native",
+                ".NET MAUI",
+                "Node.js",
+                "Architecture logicielle",
+                "Cloud"
+            ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Cheikh Ahmad Mbacké - Développement Web & Mobile",
+            "url": "https://portfolio.cheikhahmadmbacke.com/",
+            "description": "Services de développement d'applications web et mobile, backend, APIs, cloud et solutions fintech pour entreprises, startups et porteurs de projets au Sénégal et en Afrique de l'Ouest.",
+            "areaServed": [
+                {
+                    "@type": "Country",
+                    "name": "Sénégal"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Afrique de l'Ouest"
+                }
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Dakar",
+                "addressCountry": "SN"
+            },
+            "serviceType": [
+                "Développement web",
+                "Développement mobile",
+                "API REST",
+                "Architecture backend",
+                "Maintenance applicative"
+            ]
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -471,7 +563,12 @@
         .project-links {
             display: flex;
             gap: 12px;
+            flex-wrap: wrap;
             margin-top: auto;
+        }
+
+        .project-links .btn-primary {
+            justify-content: center;
         }
 
         .note-projets {
@@ -765,6 +862,15 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .project-content {
+                padding: 22px;
+            }
+
+            .project-links .btn-primary {
+                flex: 1 1 calc(50% - 12px);
+                min-width: 140px;
+            }
             
             .contact-container {
                 padding: 30px;
@@ -797,6 +903,19 @@
             .skills-container {
                 grid-template-columns: 1fr;
             }
+
+            .project-image {
+                height: 190px;
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+
+            .project-links .btn-primary {
+                flex: 1 1 100%;
+                width: 100%;
+            }
             
             .contact-container {
                 padding: 20px;
@@ -822,7 +941,7 @@
 <div class="modal" id="imageModal">
     <div class="close-modal" onclick="closeModal()">×</div>
     <div class="modal-content">
-        <img id="modalImage" src="" alt="Agrandissement">
+        <img id="modalImage" src="" alt="Agrandissement du visuel du projet" loading="lazy" decoding="async">
     </div>
 </div>
 
@@ -851,8 +970,8 @@
     <div class="hero-content">
         <span class="hero-badge">Développeur Full-Stack</span>
         <div class="hero-text">
-            <h2>Je transforme vos idées en solutions digitales performantes</h2>
-            <p>Spécialisé dans le développement d'applications web & mobile modernes, sécurisées et évolutives.</p>
+            <h2>Développeur Full-Stack: je transforme vos idées en solutions digitales performantes</h2>
+            <p>Spécialisé dans le développement d'applications web & mobile modernes, sécurisées et évolutives pour des clients au Sénégal, en Afrique de l'Ouest et à l'international.</p>
         </div>
         
         <div class="hero-actions">
@@ -866,7 +985,7 @@
     </div>
     
     <div class="hero-image">
-        <img src="assets/Photo.jpg" alt="Cheikh Ahmad Mbacké - Développeur Full-Stack">
+        <img src="assets/Photo.jpg" alt="Cheikh Ahmad Mbacké - Développeur Full-Stack à Dakar" loading="eager" fetchpriority="high" decoding="async">
     </div>
 </section>
 
@@ -880,6 +999,9 @@
         <div class="about-content">
             <p style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 30px;">
                 Passionné par l'innovation et les nouvelles technologies, je suis développeur Full-Stack avec une expertise dans la création d'applications web et mobiles performantes. Mon approche combine rigueur technique, sens du design et orientation utilisateur.
+            </p>
+            <p style="font-size: 1.05rem; color: var(--text-light); margin-bottom: 30px;">
+                Basé à Dakar, j'accompagne les entreprises, startups et entrepreneurs dans la réalisation de plateformes web, applications mobiles, APIs sécurisées et solutions fintech adaptées aux marchés du Sénégal et de l'Afrique de l'Ouest.
             </p>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px;">
@@ -986,7 +1108,7 @@
             <!-- SENBIB App -->
             <div class="project-card">
                 <div class="project-image" onclick="openModal('assets/senbib.png')">
-                    <img src="assets/senbib.png" alt="Senbib — Marketplace de livres numériques">
+                    <img src="assets/senbib.png" alt="Senbib — Marketplace africaine de livres numériques" loading="lazy" decoding="async">
                     <span class="project-badge">Mobile</span>
                 </div>
                 <div class="project-content">
@@ -1001,7 +1123,7 @@
                     </div>
                     
                     <div class="project-links">
-                        <a href="https://senbib.com" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                        <a href="https://senbib.com" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
                             <i class="fas fa-download"></i> Installer l'application
                         </a>
                     </div>
@@ -1011,7 +1133,7 @@
             <!-- SENBIB Site -->
             <div class="project-card">
                 <div class="project-image" onclick="openModal('assets/senbib_site.jpg')">
-                    <img src="assets/senbib_site.jpg" alt="Senbib — Site vitrine">
+                    <img src="assets/senbib_site.jpg" alt="Senbib.com — Site vitrine de l'application mobile" loading="lazy" decoding="async">
                     <span class="project-badge">Web</span>
                 </div>
                 <div class="project-content">
@@ -1026,7 +1148,7 @@
                     </div>
                     
                     <div class="project-links">
-                        <a href="https://senbib.com" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                        <a href="https://senbib.com" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
                             <i class="fas fa-external-link-alt"></i> Visiter le site
                         </a>
                     </div>
@@ -1036,7 +1158,7 @@
             <!-- Bawol Shop -->
             <div class="project-card">
                 <div class="project-image" onclick="openModal('assets/bawol.jpg')">
-                    <img src="assets/bawol.jpg" alt="Bawol Shop — E-commerce">
+                    <img src="assets/bawol.jpg" alt="Bawol Shop — Plateforme e-commerce multi-paiements" loading="lazy" decoding="async">
                     <span class="project-badge">E-commerce</span>
                 </div>
                 <div class="project-content">
@@ -1051,32 +1173,66 @@
                     </div>
                     
                     <div class="project-links">
-                        <a href="https://bawolshop.senbib.com" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                        <a href="https://bawolshop.senbib.com" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
                             <i class="fas fa-external-link-alt"></i> Visiter
                         </a>
                     </div>
                 </div>
             </div>
             
-            <!-- Montre.com -->
+            <!-- Apéro Mood -->
             <div class="project-card">
-                <div class="project-image" onclick="openModal('assets/montre.jpg')">
-                    <img src="assets/montre.jpg" alt="Montre.com — E-commerce spécialisé">
-                    <span class="project-badge">E-commerce</span>
+                <div class="project-image" onclick="openModal('assets/aperomood.jpg')">
+                    <img src="assets/aperomood.jpg" alt="Apéro Mood — Service de livraison d'alcools en région parisienne" loading="lazy" decoding="async">
+                    <span class="project-badge">Web & Mobile</span>
                 </div>
                 <div class="project-content">
-                    <h3>Montre.com — E-commerce horloger</h3>
-                    <p>Site e-commerce spécialisé dans la vente de montres avec interface élégante et expérience utilisateur optimisée. Plateforme en ligne ciblant le secteur de l'horlogerie, avec un accent particulier sur la présentation du catalogue, la navigation et le taux de conversion.</p>
-                    
+                    <h3>Apéro Mood — Livraison d'alcools</h3>
+                    <p>Apéro Mood est un service de livraison d'alcools à domicile en région parisienne. J'ai assuré la reprise complète du projet après changement de développeur, et je gère désormais la maintenance, la continuité technique et les améliorations produit.</p>
+
                     <div class="project-tech">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">UX Design</span>
-                        <span class="tech-tag">Paiements</span>
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">NestJS</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Stripe</span>
                     </div>
-                    
+
                     <div class="project-links">
-                        <a href="https://www.montre.com/" target="_blank" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                        <a href="https://aperomood.com/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 12px 18px; font-size: 0.9rem;">
+                            <i class="fas fa-globe"></i> Site
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.aperomood.app" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 12px 18px; font-size: 0.9rem;">
+                            <i class="fab fa-google-play"></i> Play Store
+                        </a>
+                        <a href="https://apps.apple.com/fr/app/ap%C3%A9ro-mood/id6745183241" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 12px 18px; font-size: 0.9rem;">
+                            <i class="fab fa-apple"></i> App Store
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SenePay -->
+            <div class="project-card">
+                <div class="project-image" onclick="openModal('assets/senepay.jpg')">
+                    <img src="assets/senepay.jpg" alt="SenePay — Plateforme fintech d'agrégateur de paiement mobile" loading="lazy" decoding="async">
+                    <span class="project-badge">Fintech Web</span>
+                </div>
+                <div class="project-content">
+                    <h3>SenePay — Agrégateur de paiement mobile</h3>
+                    <p>Plateforme fintech d'agrégation de paiements mobile. J'ai développé tout le backend du projet (API REST complète), conçu l'infrastructure technique et assuré le déploiement sur VPS OVHcloud pour la mise en production.</p>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">ASP.NET Core 8</span>
+                        <span class="tech-tag">C# 12</span>
+                        <span class="tech-tag">EF Core</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">JWT & API Keys</span>
+                        <span class="tech-tag">Nginx</span>
+                        <span class="tech-tag">OVHcloud VPS</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://sene-pay.com/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 12px 24px; font-size: 0.9rem;">
                             <i class="fas fa-external-link-alt"></i> Visiter
                         </a>
                     </div>
@@ -1086,6 +1242,12 @@
         
         <p class="note-projets">
             Note: Cette liste présente certaines de mes réalisations. Mes projets sont variés et incluent également des applications privées, des solutions d'entreprise et des collaborations freelance.
+        </p>
+        <p class="note-projets" style="margin-top: 16px;">
+            Services ciblés SEO :
+            <a href="/developpeur-web-senegal.html" style="color: var(--primary); font-weight: 600;">Développeur web au Sénégal</a> ·
+            <a href="/developpeur-mobile-senegal.html" style="color: var(--primary); font-weight: 600;">Développeur mobile au Sénégal</a> ·
+            <a href="/developpeur-fintech-afrique-ouest.html" style="color: var(--primary); font-weight: 600;">Développeur fintech en Afrique de l'Ouest</a>
         </p>
     </div>
 </section>
@@ -1113,7 +1275,7 @@
                         </div>
                     </a>
                     
-                    <a href="https://wa.me/221774677217?text=Bonjour%20Cheikh,%20je%20vous%20contacte%20depuis%20votre%20portfolio" target="_blank" class="contact-item">
+                    <a href="https://wa.me/221774677217?text=Bonjour%20Cheikh,%20je%20vous%20contacte%20depuis%20votre%20portfolio" target="_blank" rel="noopener noreferrer" class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
@@ -1135,10 +1297,10 @@
                 </div>
                 
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank" class="social-link">
+                    <a href="https://www.linkedin.com/in/cheikh-ahmad-mbacke-1267aa244" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profil LinkedIn de Cheikh Ahmad Mbacké">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://www.facebook.com/share/1BsBHr3cur/" target="_blank" class="social-link">
+                    <a href="https://www.facebook.com/share/1BsBHr3cur/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profil Facebook de Cheikh Ahmad Mbacké">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </div>
@@ -1166,6 +1328,9 @@
             <a href="#projects">Projets</a>
             <a href="#skills">Compétences</a>
             <a href="#contact">Contact</a>
+            <a href="/developpeur-web-senegal.html">Développeur web Sénégal</a>
+            <a href="/developpeur-mobile-senegal.html">Développeur mobile Sénégal</a>
+            <a href="/developpeur-fintech-afrique-ouest.html">Développeur fintech Afrique de l'Ouest</a>
         </div>
         
         <p class="copyright">
